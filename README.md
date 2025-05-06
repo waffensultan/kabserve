@@ -2,6 +2,8 @@
 
 To meet requirements in ITEC50B.
 
+For contributors, please read [CONTRIBUTING.md](CONTRIBUTING.md)
+
 ## Built With
 
 - Next.js
