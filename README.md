@@ -1,6 +1,6 @@
 # Welcome to [Kabserve](https://github.com/waffensultan/kabserve)!
 
----
+To meet requirements in ITEC50B.
 
 ## Built With
 
