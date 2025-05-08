@@ -1,5 +1,7 @@
 "use client";
 
+import Typography from "@/components/typography/typography";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -35,7 +37,11 @@ export default function Header() {
                             className={`${pathname === link.path ? "text-dark" : "text-muted"}`}
                             key={link.path}
                         >
-                            <Link href={link.path}>{link.link}</Link>
+                            <Link href={link.path}>
+                                <Typography variant="h6">
+                                    {link.link}
+                                </Typography>
+                            </Link>
                         </li>
                     ))}
                 </ul>
