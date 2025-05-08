@@ -15,6 +15,7 @@
     --color-success: #189904;
     --color-warning: #f5bf04;
     --color-danger: #ec024b;
+    --color-muted: #999894;
 }
 
 /* This changes based on the current variable */

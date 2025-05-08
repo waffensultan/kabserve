@@ -1,3 +1,5 @@
+import Header from "@/components/ui/header";
+
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -13,7 +15,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <Header />
+                <main className="px-10 lg:px-29 xl:px-43">{children}</main>
+            </body>
         </html>
     );
 }

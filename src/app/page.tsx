@@ -1,3 +1,5 @@
+import Typography from "@/components/typography/typography";
+
 export default function Page() {
-    return <div>Hello World!</div>;
+    return <Typography variant="h1">Announcements</Typography>;
 }
