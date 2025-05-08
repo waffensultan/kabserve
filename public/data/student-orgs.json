@@ -1,0 +1,86 @@
+[
+    {
+        "orgId": "csso",
+        "orgTitle": "Computer Science Student Organization",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "background": "/images/csso_background.png",
+            "profile": "/images/csso_profile.png"
+        },
+        "college": "College of Engineering and Information Technology (CEIT)",
+        "officers": [
+            {
+                "officerId": "da56642d-b59d-4cda-b4c1-1bd0679e6a93",
+                "name": "Aldrei Santua",
+                "position": "President"
+            },
+            {
+                "officerId": "b8013c1c-0a62-4fb4-93b3-ec9db4da4db5",
+                "name": "Aldrei Santua",
+                "position": "VP for Internal Affairs"
+            },
+            {
+                "officerId": "8630bb48-cada-4e34-b460-878ec57c52f3",
+                "name": "Aldrei Santua",
+                "position": "VP for External Affairs"
+            }
+        ],
+        "description": {
+            "aboutUs": "Computer Science Student Organization (CSSO) is a legally recognized organization that serves Computer Science students, to the extent possible by law, emphasizes participation of students from groups with low rates of eligibility to four-year institutions. CSSO offers a pipeline of extra-curricular services from first year to fourth year students to increase the number of students who graduated with Bachelor of Science in Computer Science. The CSSO was established to assist, advise and develop BSCS students to achieve optimum academic and technical performance in their chosen field of specialty.",
+            "membershipEligibility": "1. All bonafide Computer Science students of the College of Engineering and Information Technology.\n2. Organizational fee\n• An organizational fee of sixty pesos (PHP 60.00) shall be collected from the officers and members every semester, with which the Vice President for Finance and Budget Management shall take charge.\n• The collected fees shall be deposited in the official bank account of the organization.\n3. The purpose of the organizational fee is to entitle the member to all privileges they must have. This shall also serve as the main source of funds to be used for the activities and projects sponsored by the organization, for the achievement of the objectives set by the organization itself.\n4. The organization shall ensure that all students will pay the required fees during the enrollment. If in case the students fail to fulfill the responsibility of payment, the organization shall decide on the course of action to take to facilitate collection."
+        },
+        "socials": {
+            "email": "csso.2016.cvsumain@gmail.com",
+            "facebook": "https://www.facebook.com/CSSO2016"
+        }
+    },
+    {
+        "orgId": "mind-your-mind",
+        "orgTitle": "Mind Your Mind - CvSU",
+        "orgType": "non-academic",
+        "totalMembers": 80,
+        "backgroundImageUrl": "",
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "youth-for-animals",
+        "orgTitle": "Youth for Animals - CvSU",
+        "orgType": "non-academic",
+        "totalMembers": 80,
+        "backgroundImageUrl": "",
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "ufy",
+        "orgTitle": "University First Year - Student Council",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "backgroundImageUrl": "",
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    }
+]
