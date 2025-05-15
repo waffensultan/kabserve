@@ -6,7 +6,7 @@
         "totalMembers": 80,
         "images": {
             "background": "/images/csso_background.png",
-            "profile": "/images/csso_profile.png"
+            "profile": "/images/csso_profile.jpg"
         },
         "college": "College of Engineering and Information Technology (CEIT)",
         "officers": [
@@ -40,7 +40,9 @@
         "orgTitle": "Mind Your Mind - CvSU",
         "orgType": "non-academic",
         "totalMembers": 80,
-        "backgroundImageUrl": "",
+        "images": {
+            "profile": "/images/mym_profile.jpg"
+        },
         "description": {
             "aboutUs": "",
             "membershipEligibility": ""
@@ -56,7 +58,9 @@
         "orgTitle": "Youth for Animals - CvSU",
         "orgType": "non-academic",
         "totalMembers": 80,
-        "backgroundImageUrl": "",
+        "images": {
+            "profile": "/images/yfa_profile.jpg"
+        },
         "description": {
             "aboutUs": "",
             "membershipEligibility": ""
@@ -72,7 +76,207 @@
         "orgTitle": "University First Year - Student Council",
         "orgType": "academic",
         "totalMembers": 80,
-        "backgroundImageUrl": "",
+        "images": {
+            "profile": "/images/ufy_profile.png"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "ufy",
+        "orgTitle": "University First Year - Student Council",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/ufy_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "musikeros",
+        "orgTitle": "CvSU Musikeros",
+        "orgType": "non-academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/musikeros_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "cess",
+        "orgTitle": "Computer Engineering Student Society",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/cess_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "cess",
+        "orgTitle": "Computer Engineering Student Society",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/cess_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "psmt",
+        "orgTitle": "Philippine Society of Medical Technology Students",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/psmt_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "tsa",
+        "orgTitle": "Tourism Students Association",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/tsa_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "piie",
+        "orgTitle": "Philippine Institute of Industrial Engineers",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/piie_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "paft",
+        "orgTitle": "Philippine Association of Food Technologist",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/paft_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "alalay",
+        "orgTitle": "Red Cross Youth - ALALAY",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/redcross_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "gazette",
+        "orgTitle": "The Gazette",
+        "orgType": "non-academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/gazette_profile.jpg"
+        },
+        "description": {
+            "aboutUs": "",
+            "membershipEligibility": ""
+        },
+        "socials": {
+            "email": "",
+            "facebook": "",
+            "instagram": ""
+        }
+    },
+    {
+        "orgId": "paddock",
+        "orgTitle": "Paddock Society",
+        "orgType": "academic",
+        "totalMembers": 80,
+        "images": {
+            "profile": "/images/paddock_profile.jpg"
+        },
         "description": {
             "aboutUs": "",
             "membershipEligibility": ""
