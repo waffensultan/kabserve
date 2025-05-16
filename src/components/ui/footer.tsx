@@ -16,15 +16,19 @@ export default function Footer() {
                 </li>
                 <li className="w-full flex flex-row py-7 px-1 gap-5">
                     <img src="images/kabserve_logo1.svg" alt="kabserve-logo" />
-                    <div>
+                    <div className="w-full flex justify-end md:justify-between">
                         <div className="flex flex-col gap-1">
                             <Typography
-                                variant="h6"
+                                variant="h4"
                                 className="font-semibold leading-tight md:hidden"
                             >
-                                Register your organization with Kabserve
+                                Vibrant communities.{" "}
+                                <span className="bg-gradient-to-r from-[#FF4800] to-[#FFDD00] inline-block text-transparent bg-clip-text">
+                                    Fiery{" "}
+                                </span>{" "}
+                                passion.
                             </Typography>
-                            <div className="grid grid-cols-2 gap-x-2 md:gap-x-14">
+                            <div className="grid grid-cols-2 space-x-5 self-end md:text-start">
                                 {team.map((member) => (
                                     <Typography
                                         key={member}
@@ -36,13 +40,29 @@ export default function Footer() {
                                 ))}
                             </div>
                         </div>
-                    </div>
-                    <div className="hidden md:flex flex-col items-end grow">
-                        <div className="font-semibold leading-tight">
-                            <Typography variant="h6">
-                                Register your organization with
+
+                        <div className="hidden md:flex">
+                            <Typography
+                                variant="h6"
+                                className="font-semibold leading-tight min-lg:hidden"
+                            >
+                                Vibrant communities.{" "}
+                                <span className="bg-gradient-to-r from-[#FF4800] to-[#FFDD00] inline-block text-transparent bg-clip-text">
+                                    Fiery{" "}
+                                </span>{" "}
+                                passion.
                             </Typography>
-                            <Typography variant="h6">Kabserve</Typography>
+
+                            <Typography
+                                variant="h5"
+                                className="font-semibold leading-tight max-lg:hidden"
+                            >
+                                Vibrant communities.{" "}
+                                <span className="bg-gradient-to-r from-[#FF4800] to-[#FFDD00] inline-block text-transparent bg-clip-text">
+                                    Fiery{" "}
+                                </span>{" "}
+                                passion.
+                            </Typography>
                         </div>
                     </div>
                 </li>
