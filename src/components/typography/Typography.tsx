@@ -15,7 +15,7 @@ const sizes: Record<TVariant, string> = {
     h4: "text-[0.75rem] md:text-[1.5rem]",
     h5: "text-[0.688rem] md:text-[1.25rem]",
     h6: "text-[0.625rem] md:text-[0.875rem]",
-    p: "text-[0.688rem] md:text-[1.125rem] font-anek",
+    p: "text-[0.688rem] md:text-[1.125rem]",
 };
 
 const Typography = ({

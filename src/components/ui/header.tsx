@@ -38,7 +38,7 @@ export default function Header() {
                             key={link.path}
                         >
                             <Link href={link.path}>
-                                <Typography variant="h6">
+                                <Typography variant="h5">
                                     {link.link}
                                 </Typography>
                             </Link>
