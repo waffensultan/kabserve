@@ -11,8 +11,6 @@ export default async function Page() {
 
     const data = JSON.parse(file);
 
-    console.log(data);
-
     return (
         <main className="flex flex-col gap-8 h-full">
             <div className="flex flex-col gap-2 mt-3">
@@ -56,18 +54,19 @@ export default async function Page() {
                     >
                         Popular Organizations
                     </Typography>
-                    <div className="max-md:hidden min-md:flex bg-primary px-8 py-1 text-white rounded-xl font-semibold flex justify-center items-center w-35">
+                    <div className="max-md:hidden min-md:flex bg-primary px-8 py-1 text-white rounded-xl font-semibold flex justify-center items-center w-35 hover:brightness-95 duration-150 cursor-pointer">
                         View All
                     </div>
                 </div>
 
-                <div className="max-md:hidden min-md:grid grid-cols-2 gap-10">
+                {/* DESKTOP */}
+                <div className="max-md:hidden min-md:grid grid-cols-2 gap-5">
                     {data
                         .filter((org: any) => org.status === "popular")
                         .map((org: any) => (
                             <article
                                 key={org.orgId}
-                                className="flex flex-row gap-4"
+                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 py-2 px-3 rounded-xl duration-150 items-center"
                             >
                                 <img
                                     src={org.images.profile}
@@ -93,6 +92,7 @@ export default async function Page() {
                         ))}
                 </div>
 
+                {/* MOBILE */}
                 <div className="flex flex-col gap-6 mt-6 md:hidden">
                     {data
                         .filter((org: any) => org.status === "popular")
@@ -144,18 +144,19 @@ export default async function Page() {
                     </Typography>
 
                     <Funnel className="min-md:hidden" />
-                    <div className="max-md:hidden min-md:flex bg-primary px-8 py-1 text-white rounded-xl font-semibold flex justify-center items-center w-35">
+                    <div className="max-md:hidden min-md:flex bg-primary px-8 py-1 text-white rounded-xl font-semibold flex justify-center items-center w-35 hover:brightness-95 duration-150 cursor-pointer">
                         Filter
                     </div>
                 </div>
 
-                <div className="max-md:hidden min-md:grid grid-cols-2 gap-10">
+                {/* DESKTOP */}
+                <div className="max-md:hidden min-md:grid grid-cols-2 gap-5">
                     {data
                         .filter((org: any) => org.status !== "popular")
                         .map((org: any) => (
                             <article
                                 key={org.orgId}
-                                className="flex flex-row gap-4"
+                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 py-2 px-3 rounded-xl duration-150 items-center"
                             >
                                 <img
                                     src={org.images.profile}
@@ -181,6 +182,7 @@ export default async function Page() {
                         ))}
                 </div>
 
+                {/* MOBILE */}
                 <div className="flex flex-col gap-6 mt-6 md:hidden">
                     {data
                         .filter((org: any) => org.status !== "popular")
@@ -218,7 +220,7 @@ export default async function Page() {
                 {["1", "2", "3", "...", "15"].map((elem: string) => (
                     <div
                         key={elem}
-                        className={`${elem === "1" && "bg-primary text-white"} rounded-xl flex justify-center items-center w-10 h-10 border border-primary`}
+                        className={`${elem === "1" ? "bg-primary text-white" : "duration-150 hover:border-blue-400 hover:bg-blue-400 hover:white hover:text-white"} cursor-pointer  rounded-xl flex justify-center items-center w-10 h-10 border border-primary`}
                     >
                         <Typography variant="h1" className="min-md:hidden">
                             {elem}
