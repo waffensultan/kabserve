@@ -3,6 +3,7 @@
         "orgId": "csso",
         "orgTitle": "Computer Science Student Organization",
         "orgType": "academic",
+        "status": "popular",
         "totalMembers": 80,
         "images": {
             "background": "/images/csso_background.png",
@@ -75,24 +76,7 @@
         "orgId": "ufy",
         "orgTitle": "University First Year - Student Council",
         "orgType": "academic",
-        "totalMembers": 80,
-        "images": {
-            "profile": "/images/ufy_profile.png"
-        },
-        "description": {
-            "aboutUs": "",
-            "membershipEligibility": ""
-        },
-        "socials": {
-            "email": "",
-            "facebook": "",
-            "instagram": ""
-        }
-    },
-    {
-        "orgId": "ufy",
-        "orgTitle": "University First Year - Student Council",
-        "orgType": "academic",
+        "status": "popular",
         "totalMembers": 80,
         "images": {
             "profile": "/images/ufy_profile.jpg"
@@ -111,6 +95,7 @@
         "orgId": "musikeros",
         "orgTitle": "CvSU Musikeros",
         "orgType": "non-academic",
+        "status": "popular",
         "totalMembers": 80,
         "images": {
             "profile": "/images/musikeros_profile.jpg"
@@ -129,24 +114,7 @@
         "orgId": "cess",
         "orgTitle": "Computer Engineering Student Society",
         "orgType": "academic",
-        "totalMembers": 80,
-        "images": {
-            "profile": "/images/cess_profile.jpg"
-        },
-        "description": {
-            "aboutUs": "",
-            "membershipEligibility": ""
-        },
-        "socials": {
-            "email": "",
-            "facebook": "",
-            "instagram": ""
-        }
-    },
-    {
-        "orgId": "cess",
-        "orgTitle": "Computer Engineering Student Society",
-        "orgType": "academic",
+        "status": "popular",
         "totalMembers": 80,
         "images": {
             "profile": "/images/cess_profile.jpg"
@@ -237,6 +205,7 @@
         "orgId": "alalay",
         "orgTitle": "Red Cross Youth - ALALAY",
         "orgType": "academic",
+        "status": "popular",
         "totalMembers": 80,
         "images": {
             "profile": "/images/redcross_profile.jpg"
@@ -255,6 +224,7 @@
         "orgId": "gazette",
         "orgTitle": "The Gazette",
         "orgType": "non-academic",
+        "status": "popular",
         "totalMembers": 80,
         "images": {
             "profile": "/images/gazette_profile.jpg"
