@@ -1,6 +1,8 @@
 import Typography from "@/components/typography/typography";
 import { promises as fs } from "fs";
 
+import Link from "next/link";
+
 import { Funnel } from "lucide-react";
 
 export default async function Page() {
@@ -64,7 +66,8 @@ export default async function Page() {
                     {data
                         .filter((org: any) => org.status === "popular")
                         .map((org: any) => (
-                            <article
+                            <Link
+                                href={org.orgId}
                                 key={org.orgId}
                                 className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 py-2 px-3 rounded-xl duration-150 items-center"
                             >
@@ -88,7 +91,7 @@ export default async function Page() {
                                         {org.totalMembers} Members
                                     </Typography>
                                 </div>
-                            </article>
+                            </Link>
                         ))}
                 </div>
 
@@ -154,7 +157,8 @@ export default async function Page() {
                     {data
                         .filter((org: any) => org.status !== "popular")
                         .map((org: any) => (
-                            <article
+                            <Link
+                                href={org.orgId}
                                 key={org.orgId}
                                 className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 py-2 px-3 rounded-xl duration-150 items-center"
                             >
@@ -178,7 +182,7 @@ export default async function Page() {
                                         {org.totalMembers} Members
                                     </Typography>
                                 </div>
-                            </article>
+                            </Link>
                         ))}
                 </div>
 

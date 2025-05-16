@@ -29,12 +29,17 @@ export default function Header() {
         <nav className="p-2 mb-5 flex w-full justify-between items-center">
             <ul className="flex items-center lg:gap-14 xl:gap-28">
                 <li>
-                    <img src="images/kabserve_logo1.svg" alt="kabserve-logo" />
+                    <Link href={"/"}>
+                        <img
+                            src="images/kabserve_logo1.svg"
+                            alt="kabserve-logo"
+                        />
+                    </Link>
                 </li>
                 <ul className="hidden lg:flex font-semibold lg:gap-9">
                     {links.map((link) => (
                         <li
-                            className={`${pathname === link.path ? "text-dark" : "text-muted"}`}
+                            className={`${pathname === link.path ? "text-dark" : "text-muted"} duration-100`}
                             key={link.path}
                         >
                             <Link href={link.path}>
