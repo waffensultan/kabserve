@@ -9,13 +9,13 @@ interface TypographyProps {
 }
 
 const sizes: Record<TVariant, string> = {
-    h1: "text-[1.563rem] md:text-[3rem]",
-    h2: "text-[1.063rem] md:text-[2.625rem]",
-    h3: "text-[0.875rem] md:text-[1.75rem]",
+    h1: "text-[2.5rem] md:text-[3rem]",
+    h2: "text-[1.0625rem] md:text-[2rem]",
+    h3: "text-[0.9375rem] md:text-[1.75rem]",
     h4: "text-[0.75rem] md:text-[1.5rem]",
-    h5: "text-[0.688rem] md:text-[1.25rem]",
+    h5: "text-[0.6875rem] md:text-[1.25rem]",
     h6: "text-[0.625rem] md:text-[0.875rem]",
-    p: "text-[0.688rem] md:text-[1.125rem]",
+    p: "text-[0.6875rem] md:text-[1.125rem]",
 };
 
 const Typography = ({

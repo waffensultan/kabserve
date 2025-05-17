@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Evens| Kabserve",
+    title: "Events | Kabserve",
     description: "Your hotstop for student organizations in CvSU.",
 };
 
