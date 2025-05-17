@@ -224,13 +224,16 @@ const CarouselEventCard: React.FC<CarouselEventCardProps> = ({
     organizerImg,
 }) => (
     <div className="rounded-xl border border-primary/20 border-solid bg-primary/20 p-2 flex flex-col">
-        <Typography variant="h6" className="text-primary/80 font-light mb-4">
+        <Typography
+            variant="h6"
+            className="text-primary/80 font-light mb-4 md:mb-0"
+        >
             {dateInfo}
         </Typography>
-        <div className="flex items-end h-9">
+        <div className="flex items-end">
             <Typography
                 variant="h4"
-                className="text-primary font-semibold leading-none"
+                className="text-primary font-semibold leading-none min-md:h-16 min-md:my-3 max-sm:h-9"
             >
                 {title}
             </Typography>
