@@ -223,7 +223,7 @@ const CarouselEventCard: React.FC<CarouselEventCardProps> = ({
     organizer,
     organizerImg,
 }) => (
-    <div className="rounded-xl border border-primary/20 border-solid bg-primary/20 p-2 flex flex-col">
+    <div className="rounded-xl border border-primary/20 border-solid bg-primary/20 p-2 min-md:p-4 flex flex-col">
         <Typography
             variant="h6"
             className="text-primary/80 font-light mb-4 md:mb-0"
