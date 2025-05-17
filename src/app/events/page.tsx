@@ -6,7 +6,10 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 // Type definitions
 type DateHeaderProps = {
@@ -81,7 +84,7 @@ interface EventsData {
 
 // Reusable components
 const DateHeader: React.FC<DateHeaderProps> = ({ date, day }) => (
-    <div className="flex flex-row gap-2 max-sm:my-2 min-md:mt-7 max-sm:items-center min-md:flex-col min-md:gap-0">
+    <div className="flex flex-row gap-2 max-sm:my-2 min-md:mt-7 max-sm:items-center min-md:flex-col min-md:gap-0 md:flex-1/3">
         <Typography
             variant="h2"
             className="font-semibold leading-tight text-primary"
@@ -115,7 +118,7 @@ const EventParticipants: React.FC<EventParticipantsProps> = ({
             />
         ))}
         <div className="-ml-2 h-4 w-8 rounded-full border border-[#526147] bg-light text-xs flex items-center justify-center">
-            <Typography variant="p" className="text-[#526147]">
+            <Typography variant="p" className="text-[#526147] md:text-xs">
                 +45
             </Typography>
         </div>
@@ -162,7 +165,7 @@ const EventOrganizer: React.FC<EventOrganizerProps> = ({
 const RegisterButton: React.FC<RegisterButtonProps> = ({ isDark = false }) => (
     <button
         type="button"
-        className="rounded-lg bg-primary text-xs text-light font-medium py-0.5 px-3"
+        className="rounded-lg bg-primary text-xs text-light font-medium py-0.5 px-3 md:py-1.5 md:px-6 md:text-sm"
     >
         Register
     </button>
@@ -320,24 +323,25 @@ export default function EventsPage(): React.ReactElement {
                             {idx > 0 && (
                                 <hr className="h-[1px] bg-muted/20 border-0" />
                             )}
+                            <div className="md:flex md:flex-row md:flex-1/2 md:justify-between md:mt-4">
+                                <DateHeader
+                                    date={dateGroup.date}
+                                    day={dateGroup.day}
+                                />
 
-                            <DateHeader
-                                date={dateGroup.date}
-                                day={dateGroup.day}
-                            />
-
-                            <div className="flex flex-col gap-2 mb-4">
-                                {dateGroup.events.map((event, eventIdx) => (
-                                    <FeaturedEventCard
-                                        key={eventIdx}
-                                        time={event.time}
-                                        title={event.title}
-                                        location={event.location}
-                                        organizer={event.organizer}
-                                        organizerImg={event.organizerImg}
-                                        eventImg={event.eventImg}
-                                    />
-                                ))}
+                                <div className="flex flex-col gap-2 mb-4 md:flex-3/4">
+                                    {dateGroup.events.map((event, eventIdx) => (
+                                        <FeaturedEventCard
+                                            key={eventIdx}
+                                            time={event.time}
+                                            title={event.title}
+                                            location={event.location}
+                                            organizer={event.organizer}
+                                            organizerImg={event.organizerImg}
+                                            eventImg={event.eventImg}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -345,14 +349,22 @@ export default function EventsPage(): React.ReactElement {
 
                 <hr className="h-0.5 bg-primary border-0" />
 
-                <section className="mb-4">
+                <section className="mb-4 md:flex md:flex-col">
                     <Typography
                         variant="h2"
                         className="text-primary font-semibold mb-2"
                     >
                         More Events
                     </Typography>
-                    <Carousel>
+                    <Carousel
+                        plugins={[
+                            Autoplay({
+                                delay: 2000,
+                            }),
+                        ]}
+                        className="md:w-10/12 md:self-center"
+                    >
+                        <CarouselPrevious className="max-sm:hidden" />
                         <CarouselContent>
                             {eventsData.carouselEvents.map((event, idx) => (
                                 <CarouselItem key={idx} className="basis-2/3">
@@ -366,6 +378,7 @@ export default function EventsPage(): React.ReactElement {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
+                        <CarouselNext className="max-sm:hidden" />
                     </Carousel>
                 </section>
             </div>
