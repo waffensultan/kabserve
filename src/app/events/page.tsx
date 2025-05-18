@@ -180,7 +180,7 @@ export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
     organizer,
     organizerImg,
     eventImg,
-    open,
+    open = true,
 }) => (
     <div className="rounded-2xl border border-primary border-solid bg-primary/80 p-4 bg-linear-10 hover:from-warning to-70% hover:to-primary">
         <div className="flex flex-row justify-between gap-3">

@@ -96,13 +96,14 @@ export default async function Page() {
                 </div>
 
                 {/* MOBILE */}
-                <div className="flex flex-col gap-6 mt-6 md:hidden">
+                <div className="flex flex-col mt-6 md:hidden">
                     {data
                         .filter((org: any) => org.status === "popular")
                         .map((org: any) => (
-                            <article
+                            <Link
+                                href={org.orgId}
                                 key={org.orgId}
-                                className="flex flex-row gap-4"
+                                className="flex flex-row gap-4 py-2"
                             >
                                 <img
                                     src={org.images.profile}
@@ -124,7 +125,7 @@ export default async function Page() {
                                         {org.totalMembers} Members
                                     </Typography>
                                 </div>
-                            </article>
+                            </Link>
                         ))}
                 </div>
             </section>
@@ -226,10 +227,10 @@ export default async function Page() {
                         key={elem}
                         className={`${elem === "1" ? "bg-primary text-white" : "duration-150 hover:border-blue-400 hover:bg-blue-400 hover:white hover:text-white"} cursor-pointer  rounded-xl flex justify-center items-center w-10 h-10 border border-primary`}
                     >
-                        <Typography variant="h1" className="min-md:hidden">
+                        <Typography variant="h3" className="min-md:hidden">
                             {elem}
                         </Typography>
-                        <Typography variant="h4" className="max-md:hidden">
+                        <Typography variant="h5" className="max-md:hidden">
                             {elem}
                         </Typography>
                     </div>

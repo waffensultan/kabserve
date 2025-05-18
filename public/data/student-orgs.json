@@ -2,7 +2,7 @@
     {
         "orgId": "csso",
         "orgTitle": "Computer Science Student Organization",
-        "orgType": "academic",
+        "orgType": "Academic",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -39,7 +39,7 @@
     {
         "orgId": "mind-your-mind",
         "orgTitle": "Mind Your Mind - CvSU",
-        "orgType": "non-academic",
+        "orgType": "Non-academic",
         "totalMembers": 80,
         "images": {
             "profile": "/images/mym_profile.jpg"
@@ -57,7 +57,7 @@
     {
         "orgId": "youth-for-animals",
         "orgTitle": "Youth for Animals - CvSU",
-        "orgType": "non-academic",
+        "orgType": "Non-academic",
         "totalMembers": 80,
         "images": {
             "profile": "/images/yfa_profile.jpg"
@@ -94,7 +94,7 @@
     {
         "orgId": "musikeros",
         "orgTitle": "CvSU Musikeros",
-        "orgType": "non-academic",
+        "orgType": "Non-academic",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -113,7 +113,7 @@
     {
         "orgId": "cess",
         "orgTitle": "Computer Engineering Student Society",
-        "orgType": "academic",
+        "orgType": "Academic",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -132,7 +132,7 @@
     {
         "orgId": "psmt",
         "orgTitle": "Philippine Society of Medical Technology Students",
-        "orgType": "academic",
+        "orgType": "Academic",
         "totalMembers": 80,
         "images": {
             "profile": "/images/psmt_profile.jpg"
@@ -150,7 +150,7 @@
     {
         "orgId": "tsa",
         "orgTitle": "Tourism Students Association",
-        "orgType": "academic",
+        "orgType": "Academic",
         "totalMembers": 80,
         "images": {
             "profile": "/images/tsa_profile.jpg"
@@ -168,7 +168,7 @@
     {
         "orgId": "piie",
         "orgTitle": "Philippine Institute of Industrial Engineers",
-        "orgType": "academic",
+        "orgType": "Academic",
         "totalMembers": 80,
         "images": {
             "profile": "/images/piie_profile.jpg"
@@ -186,7 +186,7 @@
     {
         "orgId": "paft",
         "orgTitle": "Philippine Association of Food Technologist",
-        "orgType": "academic",
+        "orgType": "Academic",
         "totalMembers": 80,
         "images": {
             "profile": "/images/paft_profile.jpg"
@@ -204,7 +204,7 @@
     {
         "orgId": "alalay",
         "orgTitle": "Red Cross Youth - ALALAY",
-        "orgType": "academic",
+        "orgType": "Academic",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -223,7 +223,7 @@
     {
         "orgId": "gazette",
         "orgTitle": "The Gazette",
-        "orgType": "non-academic",
+        "orgType": "Non-academic",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -242,7 +242,7 @@
     {
         "orgId": "paddock",
         "orgTitle": "Paddock Society",
-        "orgType": "academic",
+        "orgType": "Academic",
         "totalMembers": 80,
         "images": {
             "profile": "/images/paddock_profile.jpg"
