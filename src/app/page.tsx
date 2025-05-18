@@ -56,7 +56,7 @@ export default async function Page() {
                     >
                         Popular Organizations
                     </Typography>
-                    <Typography variant="p" className="text-muted">
+                    <Typography variant="h4" className="text-muted mt-2">
                         Check out the most active and popular student
                         organizations on campus.
                     </Typography>
@@ -148,7 +148,7 @@ export default async function Page() {
                         >
                             All Organizations
                         </Typography>
-                        <Typography variant="p" className="text-muted">
+                        <Typography variant="h4" className="text-muted mt-2">
                             Explore all student groups and find your perfect
                             fit.
                         </Typography>
