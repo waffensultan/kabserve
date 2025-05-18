@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap");
 
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @theme {
     --font-poppins: "Poppins", sans-serif;
