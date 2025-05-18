@@ -69,7 +69,7 @@ export default function Header() {
                 <li>
                     <DropdownMenu modal={false}>
                         <DropdownMenuTrigger>
-                            <div className="w-10 h-10 p-0.5 rounded-full bg-[#27391C]">
+                            <div className="cursor-pointer w-10 h-10 p-0.5 rounded-full bg-[#27391C]">
                                 <img
                                     className="rounded-full"
                                     src="images/placeholder2.png"
@@ -95,7 +95,12 @@ export default function Header() {
                             </DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem asChild className="font-semibold">
-                                <Link href={"/profile"}>View Profile</Link>
+                                <Link
+                                    href={"/profile"}
+                                    className="cursor-pointer"
+                                >
+                                    View Profile
+                                </Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem className="font-semibold">
                                 Sign Out
