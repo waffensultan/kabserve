@@ -59,13 +59,15 @@ export default function Header() {
                     <Bell />
                 </li>
                 <li>
-                    <div className="w-10 h-10 p-0.5 rounded-full bg-[#27391C]">
-                        <img
-                            className="rounded-full"
-                            src="images/placeholder2.png"
-                            alt="placeholder"
-                        />
-                    </div>
+                    <Link href={"/profile"}>
+                        <div className="w-10 h-10 p-0.5 rounded-full bg-[#27391C]">
+                            <img
+                                className="rounded-full"
+                                src="images/placeholder2.png"
+                                alt="placeholder"
+                            />
+                        </div>
+                    </Link>
                 </li>
             </ul>
         </nav>
