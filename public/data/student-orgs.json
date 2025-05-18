@@ -9,7 +9,7 @@
             "background": "/images/csso_background.png",
             "profile": "/images/csso_profile.jpg"
         },
-        "college": "College of Engineering and Information Technology (CEIT)",
+        "college": "CEIT",
         "officers": [
             {
                 "officerId": "da56642d-b59d-4cda-b4c1-1bd0679e6a93",
@@ -57,7 +57,8 @@
     {
         "orgId": "youth-for-animals",
         "orgTitle": "Youth for Animals - CvSU",
-        "orgType": "Non-academic",
+        "orgType": "Academic",
+        "college": "CVMBS",
         "totalMembers": 80,
         "images": {
             "profile": "/images/yfa_profile.jpg"
@@ -75,7 +76,7 @@
     {
         "orgId": "ufy",
         "orgTitle": "University First Year - Student Council",
-        "orgType": "academic",
+        "orgType": "Leadership & Service",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -94,7 +95,7 @@
     {
         "orgId": "musikeros",
         "orgTitle": "CvSU Musikeros",
-        "orgType": "Non-academic",
+        "orgType": "Arts & Media",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -114,6 +115,7 @@
         "orgId": "cess",
         "orgTitle": "Computer Engineering Student Society",
         "orgType": "Academic",
+        "college": "CEIT",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -132,6 +134,7 @@
     {
         "orgId": "psmt",
         "orgTitle": "Philippine Society of Medical Technology Students",
+        "college": "CON",
         "orgType": "Academic",
         "totalMembers": 80,
         "images": {
@@ -151,6 +154,7 @@
         "orgId": "tsa",
         "orgTitle": "Tourism Students Association",
         "orgType": "Academic",
+        "college": "CEMDS",
         "totalMembers": 80,
         "images": {
             "profile": "/images/tsa_profile.jpg"
@@ -169,6 +173,7 @@
         "orgId": "piie",
         "orgTitle": "Philippine Institute of Industrial Engineers",
         "orgType": "Academic",
+        "college": "CEIT",
         "totalMembers": 80,
         "images": {
             "profile": "/images/piie_profile.jpg"
@@ -187,6 +192,7 @@
         "orgId": "paft",
         "orgTitle": "Philippine Association of Food Technologist",
         "orgType": "Academic",
+        "college": "CAFENR",
         "totalMembers": 80,
         "images": {
             "profile": "/images/paft_profile.jpg"
@@ -206,6 +212,7 @@
         "orgTitle": "Red Cross Youth - ALALAY",
         "orgType": "Academic",
         "status": "popular",
+        "college": "CON",
         "totalMembers": 80,
         "images": {
             "profile": "/images/redcross_profile.jpg"
@@ -223,7 +230,7 @@
     {
         "orgId": "gazette",
         "orgTitle": "The Gazette",
-        "orgType": "Non-academic",
+        "orgType": "Arts & Media",
         "status": "popular",
         "totalMembers": 80,
         "images": {
@@ -243,6 +250,7 @@
         "orgId": "paddock",
         "orgTitle": "Paddock Society",
         "orgType": "Academic",
+        "college": "CVMBS",
         "totalMembers": 80,
         "images": {
             "profile": "/images/paddock_profile.jpg"
