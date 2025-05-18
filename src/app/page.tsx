@@ -62,14 +62,14 @@ export default async function Page() {
                 </div>
 
                 {/* DESKTOP */}
-                <div className="max-md:hidden min-md:grid grid-cols-2 gap-5">
+                <div className="max-md:hidden min-md:grid grid-cols-2">
                     {data
                         .filter((org: any) => org.status === "popular")
                         .map((org: any) => (
                             <Link
                                 href={org.orgId}
                                 key={org.orgId}
-                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 py-2 px-3 rounded-xl duration-150 items-center"
+                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 p-3 rounded-xl duration-150 items-center"
                             >
                                 <img
                                     src={org.images.profile}
@@ -153,14 +153,14 @@ export default async function Page() {
                 </div>
 
                 {/* DESKTOP */}
-                <div className="max-md:hidden min-md:grid grid-cols-2 gap-5">
+                <div className="max-md:hidden min-md:grid grid-cols-2">
                     {data
                         .filter((org: any) => org.status !== "popular")
                         .map((org: any) => (
                             <Link
                                 href={org.orgId}
                                 key={org.orgId}
-                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 py-2 px-3 rounded-xl duration-150 items-center"
+                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 p-3 rounded-xl duration-150 items-center"
                             >
                                 <img
                                     src={org.images.profile}
