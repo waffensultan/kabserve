@@ -1,4 +1,6 @@
 import Typography from "@/components/typography/typography";
+import FilterCard from "@/components/ui/filter-card";
+
 import { promises as fs } from "fs";
 
 import Link from "next/link";
@@ -153,10 +155,7 @@ export default async function Page() {
                             fit.
                         </Typography>
                     </div>
-                    <Funnel className="min-md:hidden" />
-                    <div className="max-md:hidden min-md:flex bg-primary px-8 py-1 text-white rounded-xl font-semibold flex justify-center items-center w-35 hover:brightness-95 duration-150 cursor-pointer">
-                        Filter
-                    </div>
+                    <FilterCard />
                 </div>
 
                 {/* DESKTOP */}
