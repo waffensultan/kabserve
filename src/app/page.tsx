@@ -43,7 +43,7 @@ export default async function Page() {
             </div>
 
             <section className="flex flex-col">
-                <div className="flex justify-between items-center mb-5 md:mb-10">
+                <div className="flex flex-col mb-5 md:mb-10">
                     <Typography
                         variant="h1"
                         className="font-semibold leading-tight text-primary min-md:hidden"
@@ -56,9 +56,10 @@ export default async function Page() {
                     >
                         Popular Organizations
                     </Typography>
-                    <div className="max-md:hidden min-md:flex bg-primary px-8 py-1 text-white rounded-xl font-semibold flex justify-center items-center w-35 hover:brightness-95 duration-150 cursor-pointer">
-                        View All
-                    </div>
+                    <Typography variant="p" className="text-muted">
+                        Check out the most active and popular student
+                        organizations on campus.
+                    </Typography>
                 </div>
 
                 {/* DESKTOP */}
@@ -134,19 +135,24 @@ export default async function Page() {
 
             <section className="flex flex-col">
                 <div className="flex justify-between md:items-center mb-5 md:mb-10">
-                    <Typography
-                        variant="h1"
-                        className="font-semibold leading-tight text-primary min-md:hidden"
-                    >
-                        All Organizations
-                    </Typography>
-                    <Typography
-                        variant="h3"
-                        className="font-semibold leading-tight text-primary hidden md:flex"
-                    >
-                        All Organizations
-                    </Typography>
-
+                    <div className="flex flex-col">
+                        <Typography
+                            variant="h1"
+                            className="font-semibold leading-tight text-primary min-md:hidden"
+                        >
+                            All Organizations
+                        </Typography>
+                        <Typography
+                            variant="h3"
+                            className="font-semibold leading-tight text-primary hidden md:flex"
+                        >
+                            All Organizations
+                        </Typography>
+                        <Typography variant="p" className="text-muted">
+                            Explore all student groups and find your perfect
+                            fit.
+                        </Typography>
+                    </div>
                     <Funnel className="min-md:hidden" />
                     <div className="max-md:hidden min-md:flex bg-primary px-8 py-1 text-white rounded-xl font-semibold flex justify-center items-center w-35 hover:brightness-95 duration-150 cursor-pointer">
                         Filter
