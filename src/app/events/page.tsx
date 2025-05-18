@@ -39,6 +39,7 @@ type FeaturedEventCardProps = {
     organizer: string;
     organizerImg: string;
     eventImg: string;
+    open?: boolean;
 };
 
 type CarouselEventCardProps = {
@@ -172,13 +173,14 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({ isDark = false }) => (
 );
 
 // Featured event card (dark background)
-const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
+export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
     time,
     title,
     location,
     organizer,
     organizerImg,
     eventImg,
+    open,
 }) => (
     <div className="rounded-2xl border border-primary border-solid bg-primary/80 p-4 bg-linear-10 hover:from-warning to-70% hover:to-primary">
         <div className="flex flex-row justify-between gap-3">
@@ -200,9 +202,9 @@ const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
                     profileImg={organizerImg}
                     isDark={true}
                 />
-
                 <div className="flex flex-row gap-1 items-center mt-1">
-                    <RegisterButton />
+                    {open && <RegisterButton />}
+
                     <EventParticipants mainProfileImg={organizerImg} />
                 </div>
             </div>
