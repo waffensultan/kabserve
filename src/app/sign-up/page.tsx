@@ -1,7 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Background from "@/components/background";
+<<<<<<< HEAD
 
 import Link from "next/link";
+=======
+import React from "react";
+>>>>>>> 5a88cfc (feat: created sign-up)
 
 const SignUpPage: React.FC = () => (
     <>
@@ -18,6 +22,7 @@ const SignUpPage: React.FC = () => (
                                 alt="Kabserve Logo"
                                 className="h-8"
                             />
+<<<<<<< HEAD
                             <Link href={"/"}>
                                 <button className="p-2 rounded-full hover:bg-white/10">
                                     <span className="sr-only">Back</span>
@@ -36,6 +41,24 @@ const SignUpPage: React.FC = () => (
                                     </svg>
                                 </button>
                             </Link>
+=======
+                            <button className="p-2 rounded-full hover:bg-white/10">
+                                <span className="sr-only">Back</span>
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    fill="none"
+                                    stroke="#fff"
+                                >
+                                    <path
+                                        d="M15 18l-6-6 6-6"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+>>>>>>> 5a88cfc (feat: created sign-up)
                         </div>
 
                         <h1 className="text-4xl font-bold text-white mb-2">
