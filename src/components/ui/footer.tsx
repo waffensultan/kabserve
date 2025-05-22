@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
     const pathname = usePathname();
 
-    const isAuth = pathname.startsWith("/sign-up");
+    const isAuth =
+        pathname.startsWith("/sign-up") || pathname.startsWith("/login");
 
     const team = [
         "Waffen Ampatua",

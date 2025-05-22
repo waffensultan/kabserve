@@ -18,7 +18,8 @@ import { Search, Bell } from "lucide-react";
 export default function Header() {
     const pathname = usePathname();
 
-    const isAuth = pathname.startsWith("/sign-up");
+    const isAuth =
+        pathname.startsWith("/sign-up") || pathname.startsWith("/login");
 
     const links = [
         {
