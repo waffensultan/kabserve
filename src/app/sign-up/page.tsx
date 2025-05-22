@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Background from "@/components/background";
-import React from "react";
+
+import Link from "next/link";
 
 const SignUpPage: React.FC = () => (
     <>
@@ -17,22 +18,24 @@ const SignUpPage: React.FC = () => (
                                 alt="Kabserve Logo"
                                 className="h-8"
                             />
-                            <button className="p-2 rounded-full hover:bg-white/10">
-                                <span className="sr-only">Back</span>
-                                <svg
-                                    width="24"
-                                    height="24"
-                                    fill="none"
-                                    stroke="#fff"
-                                >
-                                    <path
-                                        d="M15 18l-6-6 6-6"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </button>
+                            <Link href={"/"}>
+                                <button className="p-2 rounded-full hover:bg-white/10">
+                                    <span className="sr-only">Back</span>
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        fill="none"
+                                        stroke="#fff"
+                                    >
+                                        <path
+                                            d="M15 18l-6-6 6-6"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                </button>
+                            </Link>
                         </div>
 
                         <h1 className="text-4xl font-bold text-white mb-2">
