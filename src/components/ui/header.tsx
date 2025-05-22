@@ -81,7 +81,7 @@ export default function Header() {
                                     />
                                 </div>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="bg-primary/90 border-[#FFFDF6] backdrop-blur-md text-white">
+                            <DropdownMenuContent className="bg-primary/90 border-[#FFFDF6] backdrop-blur-md text-white z-[1000]">
                                 <DropdownMenuLabel className="flex flex-row items-center gap-2">
                                     <div className="w-10 h-10 p-0.5 rounded-full bg-[#27391C]">
                                         <img
