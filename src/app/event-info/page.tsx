@@ -39,7 +39,7 @@ const EventParticipants: React.FC<EventParticipantsProps> = ({
 export default function EventInfoPage() {
     return (
         <main className="flex flex-col gap-5 h-full">
-            <div className="bg-primary/80 rounded-2xl p-4 flex flex-col gap-1">
+            <div className="bg-primary/80 rounded-2xl p-4 flex flex-col gap-1 md:hidden">
                 <Typography variant="p" className="text-light/60 font-light">
                     May 28 | Wednesday | 1:00 PM
                 </Typography>
@@ -78,6 +78,56 @@ export default function EventInfoPage() {
                 >
                     Register
                 </button>
+            </div>
+
+            <div className="bg-primary/80 rounded-2xl p-10 md:flex flex-row gap-10 hidden justify-between">
+                <div className="w-3/5 flex flex-col justify-between">
+                    <Typography
+                        variant="p"
+                        className="text-light/60 font-light"
+                    >
+                        May 28 | Wednesday | 1:00 PM
+                    </Typography>
+                    <div>
+                        <Typography
+                            variant="h1"
+                            className="text-light font-semibold leading-tight my-4"
+                        >
+                            CSSO Blockchain Decoders: Web3 Foundations & Smart
+                            Contract Development
+                        </Typography>
+                        <div className="flex flex-row gap-1 items-center mb-2">
+                            <MapPin className="h-6 w-6 text-light/80 font-light" />
+                            <Typography
+                                variant="p"
+                                className="text-light/80 font-light"
+                            >
+                                CEIT Conference Room, Cavite State University
+                            </Typography>
+                        </div>
+                        <div className="flex flex-row gap-1 items-center mb-2">
+                            <img
+                                src="/images/csso_profile.jpg"
+                                className="h-6 w-6 rounded-full"
+                            />
+                            <Typography
+                                variant="p"
+                                className="text-light/80 font-light leading-none"
+                            >
+                                by Computer Science Student Organization
+                            </Typography>
+                        </div>
+                        <button
+                            type="button"
+                            className="mt-2 w-1/2 rounded-lg bg-primary text-xs text-light font-medium py-1.5 px-3 md:py-3 md:w-1/3 md:text-base"
+                        >
+                            Register
+                        </button>
+                    </div>
+                </div>
+                <div className="w-2/5">
+                    <img src="/images/csso_event1.jpg" className="rounded-lg" />
+                </div>
             </div>
 
             <hr className="h-0.5 bg-primary border-0" />
@@ -129,7 +179,7 @@ export default function EventInfoPage() {
                 </Typography>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d483.48993332135296!2d120.88042901722203!3d14.199493672224328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd83e5d4c6c68f%3A0x5e87163ef99e370d!2sDepartment%20of%20Civil%20Engineering!5e0!3m2!1sen!2sph!4v1748336713021!5m2!1sen!2sph"
-                    className="border-0 h-1/3 w-full rounded-lg mt-2 mb-3"
+                    className="border-0 md:h-64 w-full rounded-lg mt-2 mb-3"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -150,11 +200,11 @@ export default function EventInfoPage() {
 
             <hr className="h-0.5 bg-primary border-0" />
 
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-4">
                 <div>
                     <Typography
                         variant="h2"
-                        className="font-semibold leading-tight text-primary mb-1"
+                        className="font-semibold leading-tight text-primary mb-1 md:mb-2.5"
                     >
                         Host
                     </Typography>
@@ -172,7 +222,7 @@ export default function EventInfoPage() {
                 <div className="mb-5">
                     <Typography
                         variant="h2"
-                        className="font-semibold leading-tight text-primary mb-1"
+                        className="font-semibold leading-tight text-primary mb-1 md:mb-2.5"
                     >
                         Going
                     </Typography>
