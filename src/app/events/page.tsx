@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Typography from "@/components/typography/typography";
 import { MapPin } from "lucide-react";
@@ -173,6 +174,7 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({ isDark = false }) => (
 );
 
 // Featured event card (dark background)
+
 export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
     time,
     title,
@@ -182,7 +184,10 @@ export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
     eventImg,
     open = true,
 }) => (
-    <div className="rounded-2xl border border-primary border-solid bg-primary/80 p-4 bg-linear-10 hover:from-warning to-70% hover:to-primary">
+    <Link
+        href="event-info"
+        className="block no-underline rounded-2xl border border-primary border-solid bg-primary/80 p-4 bg-linear-10 hover:from-warning to-70% hover:to-primary transition-all duration-300"
+    >
         <div className="flex flex-row justify-between gap-3">
             <div className="flex flex-col gap-1.5">
                 <Typography variant="p" className="text-light/60 font-light">
@@ -204,7 +209,6 @@ export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
                 />
                 <div className="flex flex-row gap-1 items-center mt-1">
                     {open && <RegisterButton />}
-
                     <EventParticipants mainProfileImg={organizerImg} />
                 </div>
             </div>
@@ -214,7 +218,7 @@ export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
                 className="rounded-xl h-32 w-32 object-cover"
             />
         </div>
-    </div>
+    </Link>
 );
 
 // Carousel event card (light background)
