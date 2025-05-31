@@ -328,7 +328,7 @@ export default function EventsPage(): React.ReactElement {
                     <button className="flex flex-row items-center gap-2 self-center bg-primary rounded-xl text-white font-semibold py-2 px-5 text-sm min-md:hidden">
                         <CalendarPlus className="text-light h-6 w-6" />
                     </button>
-                    <button className="flex flex-row items-center gap-2 self-center bg-primary rounded-xl text-white font-semibold py-2 px-5 text-sm hidden md:flex">
+                    <button className="flex-row items-center gap-2 self-center bg-primary hover:bg-primary/90 cursor-pointer rounded-xl text-white font-semibold py-2 px-5 text-sm hidden md:flex">
                         <CalendarPlus className="text-light h-6 w-6" />
                         Create an Event
                     </button>
