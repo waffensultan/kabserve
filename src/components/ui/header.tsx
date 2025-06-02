@@ -18,8 +18,10 @@ import { Search, Bell } from "lucide-react";
 export default function Header() {
     const pathname = usePathname();
 
-    const isAuth =
-        pathname.startsWith("/sign-up") || pathname.startsWith("/login");
+    const isExcluded =
+        pathname.startsWith("/sign-up") ||
+        pathname.startsWith("/login") ||
+        pathname.startsWith("/continue-as");
 
     const links = [
         {
@@ -36,7 +38,7 @@ export default function Header() {
         },
     ];
 
-    if (!isAuth) {
+    if (!isExcluded) {
         return (
             <nav className="p-2 mb-5 flex w-full justify-between items-center sticky top-0 bg-light/70 backdrop-blur-md z-[100]">
                 <ul className="flex items-center lg:gap-14 xl:gap-28">
