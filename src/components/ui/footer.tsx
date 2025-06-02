@@ -9,6 +9,7 @@ export default function Footer() {
 
     const isAuth =
         pathname.startsWith("/sign-up") || pathname.startsWith("/login");
+    const isDark = pathname.startsWith("/continue-as");
 
     const team = [
         "Waffen Ampatua",
@@ -19,10 +20,14 @@ export default function Footer() {
 
     if (!isAuth) {
         return (
-            <nav className="px-5 md:px-10 lg:px-29 xl:px-43">
+            <nav
+                className={`${isDark && "text-white"} px-5 md:px-10 lg:px-29 xl:px-43`}
+            >
                 <ul>
                     <li>
-                        <hr className="w-full h-0.5 border-none bg-dark" />
+                        <hr
+                            className={`${isDark ? "bg-white" : "bg-dark"} w-full h-0.5 border-none`}
+                        />
                     </li>
                     <li className="w-full flex flex-row py-7 px-1 gap-5">
                         <img
@@ -46,7 +51,7 @@ export default function Footer() {
                                         <Typography
                                             key={member}
                                             variant="h6"
-                                            className="font-semibold text-muted"
+                                            className={`${isDark ? "text-white" : "text-muted"} font-semibold`}
                                         >
                                             {member}
                                         </Typography>
