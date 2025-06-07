@@ -95,14 +95,6 @@ export default function Page() {
                             <Typography variant="p">4</Typography>
                         </div>
                     </div>
-                    <div className="flex flex-row items-center gap-1 md:gap-2 bg-primary px-3 py-2 text-white rounded-xl font-semibold flex justify-center items-center">
-                        <Typography variant="p" className="font-semibold">
-                            Announcements
-                        </Typography>
-                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#DF5B13] flex justify-center items-center">
-                            <Typography variant="p">2</Typography>
-                        </div>
-                    </div>
                 </div>
 
                 <div className="flex flex-col gap-3 pt-3">
