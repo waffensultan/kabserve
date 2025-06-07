@@ -1,246 +1,145 @@
-import Typography from "@/components/typography/typography";
-import FilterCard from "@/components/ui/filter-card";
+"use client";
 
-import { promises as fs } from "fs";
+import { useState, useEffect } from "react";
+
+import {
+    GraduationCap as GraduationCapIcon,
+    Users as UsersIcon,
+    ScanEye as ScanEyeIcon,
+} from "lucide-react";
 
 import Link from "next/link";
 
-import { Funnel } from "lucide-react";
+import Typography from "@/components/typography/typography";
+import Background from "@/components/background";
 
-export default async function Page() {
-    const file = await fs.readFile(
-        process.cwd() + "/public/data/student-orgs.json",
-        "utf8"
-    );
+export type UserRole = "student" | "organization" | "guest";
+export default function ContinueAs() {
+    const [selected, setSelected] = useState<UserRole | undefined>(undefined);
 
-    const data = JSON.parse(file);
+    useEffect(() => {
+        if (selected) {
+            if (typeof window !== "undefined" && window.localStorage) {
+                localStorage.setItem("role", selected);
+            }
+        }
+    }, [selected]);
 
     return (
-        <main className="flex flex-col gap-8 h-full">
-            <div className="flex flex-col gap-2 mt-3">
-                <Typography
-                    variant="h1"
-                    className="font-semibold leading-tight text-primary text-4xl min-md:hidden"
-                >
-                    Discover Organizations
-                </Typography>
-                <Typography variant="h2" className="min-md:hidden">
-                    Discover a vibrant network of student-led organizations that
-                    foster leadership, creativity, and collaboration—join a
-                    community where your passions thrive, your voice matters,
-                    and your potential is amplified.
-                </Typography>
-                <Typography
-                    variant="h2"
-                    className="font-semibold leading-tight text-primary text-4xl hidden md:flex"
-                >
-                    Discover Organizations
-                </Typography>
-                <Typography variant="h4" className="hidden md:flex">
-                    Discover a vibrant network of student-led organizations that
-                    foster leadership, creativity, and collaboration—join a
-                    community where your passions thrive, your voice matters,
-                    and your potential is amplified.
-                </Typography>
-            </div>
-
-            <section className="flex flex-col">
-                <div className="flex flex-col mb-5 md:mb-10">
-                    <Typography
-                        variant="h1"
-                        className="font-semibold leading-tight text-primary min-md:hidden"
+        <>
+            <Background />
+            <main className="flex flex-col gap-10 justify-center items-center py-15">
+                <section className="flex flex-col w-full">
+                    <Typography className="text-white font-semibold">
+                        {" "}
+                        Continue as...
+                    </Typography>
+                    <Typography variant="h3" className="text-white">
+                        Identify as a Student, Organization, or Guest
+                    </Typography>
+                </section>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <article
+                        onClick={() => setSelected("student")}
+                        className={`${selected === "student" && "-translate-y-5"} transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer`}
                     >
-                        Popular Organizations
-                    </Typography>
-                    <Typography
-                        variant="h3"
-                        className="font-semibold leading-tight text-primary hidden md:flex"
-                    >
-                        Popular Organizations
-                    </Typography>
-                    <Typography variant="h4" className="text-muted mt-2">
-                        Check out the most active and popular student
-                        organizations on campus.
-                    </Typography>
-                </div>
-
-                {/* DESKTOP */}
-                <div className="max-md:hidden min-md:grid grid-cols-2">
-                    {data
-                        .filter((org: any) => org.status === "popular")
-                        .map((org: any) => (
-                            <Link
-                                href={org.orgId}
-                                key={org.orgId}
-                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 p-3 rounded-xl duration-150 items-center"
-                            >
-                                <img
-                                    src={org.images.profile}
-                                    alt={org.orgId}
-                                    className="h-20 rounded-xl"
-                                />
-                                <div className="flex flex-col gap-1">
-                                    <Typography
-                                        variant="h4"
-                                        className="font-semibold leading-tight text-primary"
-                                    >
-                                        {org.orgTitle}
-                                    </Typography>
-
-                                    <Typography
-                                        variant="h5"
-                                        className="text-muted"
-                                    >
-                                        {org.totalMembers} Members
-                                    </Typography>
-                                </div>
-                            </Link>
-                        ))}
-                </div>
-
-                {/* MOBILE */}
-                <div className="flex flex-col mt-6 md:hidden">
-                    {data
-                        .filter((org: any) => org.status === "popular")
-                        .map((org: any) => (
-                            <Link
-                                href={org.orgId}
-                                key={org.orgId}
-                                className="flex flex-row gap-4 py-2"
-                            >
-                                <img
-                                    src={org.images.profile}
-                                    alt={org.orgId}
-                                    className="h-20 rounded-xl"
-                                />
-                                <div className="flex flex-col gap-1">
-                                    <Typography
-                                        variant="h2"
-                                        className="font-semibold leading-tight text-primary"
-                                    >
-                                        {org.orgTitle}
-                                    </Typography>
-
-                                    <Typography
-                                        variant="h3"
-                                        className="text-muted"
-                                    >
-                                        {org.totalMembers} Members
-                                    </Typography>
-                                </div>
-                            </Link>
-                        ))}
-                </div>
-            </section>
-
-            <hr className="w-full h-0.5 border-none bg-dark my-8" />
-
-            <section className="flex flex-col">
-                <div className="flex justify-between md:items-center mb-5 md:mb-10">
-                    <div className="flex flex-col">
-                        <Typography
-                            variant="h1"
-                            className="font-semibold leading-tight text-primary min-md:hidden"
-                        >
-                            All Organizations
+                        <GraduationCapIcon size={120} />
+                        <Typography className="text-[#255F38] font-semibold md:hidden">
+                            Student
+                        </Typography>
+                        <Typography variant="h3" className="md:hidden">
+                            Explore campus orgs, join events, and grow your CvSU
+                            journey.
                         </Typography>
                         <Typography
-                            variant="h3"
-                            className="font-semibold leading-tight text-primary hidden md:flex"
+                            variant="h2"
+                            className="text-[#255F38] font-semibold hidden md:flex"
                         >
-                            All Organizations
+                            Student
                         </Typography>
-                        <Typography variant="h4" className="text-muted mt-2">
-                            Explore all student groups and find your perfect
-                            fit.
+                        <Typography variant="p" className="hidden md:flex">
+                            Explore campus orgs, join events, and grow your CvSU
+                            journey.
                         </Typography>
-                    </div>
-                    <FilterCard />
-                </div>
+                        <div
+                            className={`absolute bottom-0 left-0 h-3 w-full bg-green-600 transition-all duration-300 ${
+                                selected === "student"
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                            }`}
+                        />
+                    </article>
 
-                {/* DESKTOP */}
-                <div className="max-md:hidden min-md:grid grid-cols-2">
-                    {data
-                        .filter((org: any) => org.status !== "popular")
-                        .map((org: any) => (
-                            <Link
-                                href={org.orgId}
-                                key={org.orgId}
-                                className="flex flex-row gap-4 cursor-pointer hover:bg-stone-200 p-3 rounded-xl duration-150 items-center"
-                            >
-                                <img
-                                    src={org.images.profile}
-                                    alt={org.orgId}
-                                    className="h-20 rounded-xl"
-                                />
-                                <div className="flex flex-col gap-1">
-                                    <Typography
-                                        variant="h4"
-                                        className="font-semibold leading-tight text-primary"
-                                    >
-                                        {org.orgTitle}
-                                    </Typography>
-
-                                    <Typography
-                                        variant="h5"
-                                        className="text-muted"
-                                    >
-                                        {org.totalMembers} Members
-                                    </Typography>
-                                </div>
-                            </Link>
-                        ))}
-                </div>
-
-                {/* MOBILE */}
-                <div className="flex flex-col gap-6 mt-6 md:hidden">
-                    {data
-                        .filter((org: any) => org.status !== "popular")
-                        .map((org: any) => (
-                            <article
-                                key={org.orgId}
-                                className="flex flex-row gap-4"
-                            >
-                                <img
-                                    src={org.images.profile}
-                                    alt={org.orgId}
-                                    className="h-20 rounded-xl"
-                                />
-                                <div className="flex flex-col gap-1">
-                                    <Typography
-                                        variant="h2"
-                                        className="font-semibold leading-tight text-primary"
-                                    >
-                                        {org.orgTitle}
-                                    </Typography>
-
-                                    <Typography
-                                        variant="h3"
-                                        className="text-muted"
-                                    >
-                                        {org.totalMembers} Members
-                                    </Typography>
-                                </div>
-                            </article>
-                        ))}
-                </div>
-            </section>
-
-            <div className="w-full flex justify-center items-center gap-3 grow py-5">
-                {["1", "2", "3", "...", "15"].map((elem: string) => (
-                    <div
-                        key={elem}
-                        className={`${elem === "1" ? "bg-primary text-white" : "duration-150 hover:border-blue-400 hover:bg-blue-400 hover:white hover:text-white"} cursor-pointer  rounded-xl flex justify-center items-center w-10 h-10 border border-primary`}
+                    <article
+                        onClick={() => setSelected("organization")}
+                        className={`${selected === "organization" && "-translate-y-5"} transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer`}
                     >
-                        <Typography variant="h3" className="min-md:hidden">
-                            {elem}
+                        <UsersIcon size={120} />
+                        <Typography className="text-[#255F38] font-semibold md:hidden">
+                            Organization
                         </Typography>
-                        <Typography variant="h5" className="max-md:hidden">
-                            {elem}
+                        <Typography variant="h3" className="md:hidden">
+                            Explore campus orgs, join events, and grow your CvSU
+                            journey.
                         </Typography>
-                    </div>
-                ))}
-            </div>
-        </main>
+                        <Typography
+                            variant="h2"
+                            className="text-[#255F38] font-semibold hidden md:flex"
+                        >
+                            Organization
+                        </Typography>
+                        <Typography variant="p" className="hidden md:flex">
+                            Manage your org, post events, and engage with
+                            Kabsuhenyos.
+                        </Typography>
+                        <div
+                            className={`absolute bottom-0 left-0 h-3 w-full bg-green-600 transition-all duration-300 ${
+                                selected === "organization"
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                            }`}
+                        />
+                    </article>
+
+                    <article
+                        onClick={() => setSelected("guest")}
+                        className={`${selected === "guest" && "-translate-y-5"} transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer`}
+                    >
+                        <ScanEyeIcon size={120} />
+                        <Typography className="text-[#255F38] font-semibold md:hidden">
+                            Guest
+                        </Typography>
+                        <Typography variant="h3" className="md:hidden">
+                            Browse as a visitor and discover what Kabserve has
+                            to offer.
+                        </Typography>
+                        <Typography
+                            variant="h2"
+                            className="text-[#255F38] font-semibold hidden md:flex"
+                        >
+                            Guest
+                        </Typography>
+                        <Typography variant="p" className="hidden md:flex">
+                            Browse as a visitor and discover what Kabserve has
+                            to offer.
+                        </Typography>
+
+                        <div
+                            className={`absolute bottom-0 left-0 h-3 w-full bg-green-600 transition-all duration-300 ${
+                                selected === "guest"
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                            }`}
+                        />
+                    </article>
+                </div>
+
+                <Link href={selected !== "guest" ? '/login' :  '/guest'}>
+                    <button className="cursor-pointer text-xl w-full bg-yellow-400 text-green-900 font-bold py-2 px-10 rounded hover:bg-yellow-500 transition active:scale-97">
+                        Next
+                    </button>
+                </Link>
+            </main>
+        </>
     );
 }

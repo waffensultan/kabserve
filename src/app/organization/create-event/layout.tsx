@@ -1,9 +1,7 @@
 import { Metadata } from "next";
 
-import Background from "@/components/background";
-
 export const metadata: Metadata = {
-    title: "Kabserve | Continue As",
+    title: "Kabserve | Create Event",
     description: "Your hotstop for student organizations in CvSU.",
 };
 
@@ -12,10 +10,5 @@ export default function Layout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <>
-            <Background />
-            {children}
-        </>
-    );
+    return children;
 }

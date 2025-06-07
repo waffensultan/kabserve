@@ -15,26 +15,41 @@ import { usePathname } from "next/navigation";
 
 import { Search, Bell } from "lucide-react";
 
+import { useState, useEffect } from "react";
+import { UserRole } from "@/app/page";
+
 export default function Header() {
+    const [savedRole, setSavedRole] = useState<UserRole | undefined>(undefined);
+
     const pathname = usePathname();
+
+
+    useEffect(() => {
+        if (typeof window !== "undefined" && window.localStorage) {
+            const role = localStorage.getItem("role");
+            if (role) {
+                setSavedRole(role as UserRole);
+            }
+        }
+    }, []);
 
     const isExcluded =
         pathname.startsWith("/sign-up") ||
         pathname.startsWith("/login") ||
-        pathname.startsWith("/continue-as");
+        pathname === "/"
 
     const links = [
         {
             link: "Organizations",
-            path: "/",
+            path: `/${savedRole}`,
         },
         {
             link: "Announcements",
-            path: "/announcements",
+            path: `/${savedRole}/announcements`,
         },
         {
             link: "Events",
-            path: "/events",
+            path: `/${savedRole}/events`,
         },
     ];
 
@@ -43,9 +58,9 @@ export default function Header() {
             <nav className="p-2 mb-5 flex w-full justify-between items-center sticky top-0 bg-light/70 backdrop-blur-md z-[100]">
                 <ul className="flex items-center lg:gap-14 xl:gap-28">
                     <li>
-                        <Link href={"/"}>
+                        <Link href={`/${savedRole}`}>
                             <img
-                                src="images/kabserve_logo1.svg"
+                                src="/images/kabserve_logo1.svg"
                                 alt="kabserve-logo"
                             />
                         </Link>
@@ -78,7 +93,7 @@ export default function Header() {
                                 <div className="cursor-pointer w-10 h-10 p-0.5 rounded-full bg-[#27391C]">
                                     <img
                                         className="rounded-full"
-                                        src="images/placeholder2.png"
+                                        src="/images/placeholder2.png"
                                         alt="placeholder"
                                     />
                                 </div>
@@ -88,7 +103,7 @@ export default function Header() {
                                     <div className="w-10 h-10 p-0.5 rounded-full bg-[#27391C]">
                                         <img
                                             className="rounded-full"
-                                            src="images/placeholder2.png"
+                                            src="/images/placeholder2.png"
                                             alt="placeholder"
                                         />
                                     </div>
@@ -105,7 +120,7 @@ export default function Header() {
                                     className="font-semibold"
                                 >
                                     <Link
-                                        href={"/profile"}
+                                        href={`/${savedRole}/profile`}
                                         className="cursor-pointer"
                                     >
                                         View Profile

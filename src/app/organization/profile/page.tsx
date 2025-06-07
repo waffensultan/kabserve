@@ -1,6 +1,6 @@
 import Typography from "@/components/typography/typography";
 import AvatarCard from "@/components/ui/avatar-card";
-import { FeaturedEventCard } from "@/app/events/page";
+import { FeaturedEventCard } from "../events/page";
 
 export default function Page() {
     return (
@@ -34,7 +34,7 @@ export default function Page() {
                     <div className="w-30 h-30 p-2 rounded-full bg-light self-center">
                         <img
                             className="rounded-full"
-                            src="images/placeholder2.png"
+                            src="/images/placeholder2.png"
                             alt="placeholder"
                         />
                     </div>

@@ -266,7 +266,7 @@ export default function EventsPage(): React.ReactElement {
         // Function to fetch the events data
         const fetchEvents = async () => {
             try {
-                const response = await fetch("data/events.json");
+                const response = await fetch("/data/events.json");
 
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status}`);

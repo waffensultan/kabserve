@@ -1,6 +1,6 @@
 import Typography from "@/components/typography/typography";
 import AvatarCard from "@/components/ui/avatar-card";
-import { FeaturedEventCard } from "@/app/events/page";
+import { FeaturedEventCard } from "../student/events/page";
 import { Facebook, Instagram, Mail } from "lucide-react";
 
 import { promises as fs } from "fs";
