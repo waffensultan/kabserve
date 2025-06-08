@@ -75,7 +75,7 @@ export default async function Page() {
                                 <img
                                     src={org.images.profile}
                                     alt={org.orgId}
-                                    className="h-20 rounded-xl"
+                                    className="h-20 rounded-full"
                                 />
                                 <div className="flex flex-col gap-1">
                                     <Typography
@@ -109,7 +109,7 @@ export default async function Page() {
                                 <img
                                     src={org.images.profile}
                                     alt={org.orgId}
-                                    className="h-20 rounded-xl"
+                                    className="h-20 rounded-full"
                                 />
                                 <div className="flex flex-col gap-1">
                                     <Typography
@@ -169,7 +169,7 @@ export default async function Page() {
                                 <img
                                     src={org.images.profile}
                                     alt={org.orgId}
-                                    className="h-20 rounded-xl"
+                                    className="h-20 rounded-full"
                                 />
                                 <div className="flex flex-col gap-1">
                                     <Typography
@@ -202,7 +202,7 @@ export default async function Page() {
                                 <img
                                     src={org.images.profile}
                                     alt={org.orgId}
-                                    className="h-20 rounded-xl"
+                                    className="h-20 rounded-full"
                                 />
                                 <div className="flex flex-col gap-1">
                                     <Typography
