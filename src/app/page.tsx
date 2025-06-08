@@ -43,7 +43,7 @@ export default function ContinueAs() {
                         </span>{" "}
                         passion.
                     </span>
-                    <section className="flex flex-col w-full -mt-8">
+                    <section className="flex flex-col w-full -mt-20">
                         <Typography className="text-white font-semibold">
                             {" "}
                             Continue as...
