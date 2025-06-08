@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 
-
 import {
   GraduationCap as GraduationCapIcon,
   Users as UsersIcon,
@@ -56,16 +55,21 @@ export default function ContinueAs() {
               Identify as a Student, Organization, or Guest
             </Typography>
           </section>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <article
               onClick={() => handleSelect("student")}
-              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer hover:-translate-y-5"
+              // Adjusted padding: Smaller on mobile, larger from md breakpoint.
+              // Added a specific smaller width for base mobile, and md:w-75 for wider screens.
+              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-6 md:p-10 text-center w-64 md:w-75 justify-self-center cursor-pointer hover:-translate-y-5"
             >
-              <GraduationCapIcon size={120} />
-              <Typography className="text-[#255F38] font-semibold md:hidden">
+              {/* Adjusted icon size */}
+              <GraduationCapIcon size={90} />
+              {/* Adjusted mobile heading size */}
+              <Typography className="text-[#255F38] font-semibold md:hidden text-xl">
                 Student
               </Typography>
-              <Typography variant="h3" className="md:hidden">
+              {/* Adjusted mobile description size */}
+              <Typography className="md:hidden text-base">
                 Explore campus orgs, join events, and grow your CvSU journey.
               </Typography>
               <Typography
@@ -81,13 +85,17 @@ export default function ContinueAs() {
 
             <article
               onClick={() => handleSelect("organization")}
-              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer hover:-translate-y-5"
+              // Adjusted padding and width
+              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-6 md:p-10 text-center w-64 md:w-75 justify-self-center cursor-pointer hover:-translate-y-5"
             >
-              <UsersIcon size={120} />
-              <Typography className="text-[#255F38] font-semibold md:hidden">
+              {/* Adjusted icon size */}
+              <UsersIcon size={90} />
+              {/* Adjusted mobile heading size */}
+              <Typography className="text-[#255F38] font-semibold md:hidden text-xl">
                 Organization
               </Typography>
-              <Typography variant="h3" className="md:hidden">
+              {/* Adjusted mobile description size */}
+              <Typography className="md:hidden text-base">
                 Manage your org, post events, and engage with Kabsuhenyos.
               </Typography>
               <Typography
@@ -103,13 +111,17 @@ export default function ContinueAs() {
 
             <article
               onClick={() => handleSelect("guest")}
-              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer hover:-translate-y-5"
+              // Adjusted padding and width
+              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-6 md:p-10 text-center w-64 md:w-75 justify-self-center cursor-pointer hover:-translate-y-5"
             >
-              <ScanEyeIcon size={120} />
-              <Typography className="text-[#255F38] font-semibold md:hidden">
+              {/* Adjusted icon size */}
+              <ScanEyeIcon size={90} />
+              {/* Adjusted mobile heading size */}
+              <Typography className="text-[#255F38] font-semibold md:hidden text-xl">
                 Guest
               </Typography>
-              <Typography variant="h3" className="md:hidden">
+              {/* Adjusted mobile description size */}
+              <Typography className="md:hidden text-base">
                 Browse as a visitor and discover what Kabserve has to offer.
               </Typography>
               <Typography

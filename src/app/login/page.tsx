@@ -64,13 +64,16 @@ const SignUpPage: React.FC = () => {
   return (
     <>
       <Background />
-      <div className="relative min-h-screen flex flex-col">
-        <div className="flex mt-18 items-center justify-center ">
-          {/* Left: Form */}
-          <div className="flex-1 flex justify-end pr-12">
-            <div className="w-full max-w-md">
-              {/* Logo and Back Button */}
-              <div className="flex items-center justify-between mb-8">
+      {/* Main container: Centered and adds vertical padding */}
+      <div className="relative min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="flex flex-col lg:flex-row w-full max-w-4xl lg:max-w-6xl mx-auto">
+          {/* Left: Form Container */}
+          {/* On smaller screens (mobile), it takes full width and is centered. */}
+          {/* On larger screens (lg), it takes half width to make space for the illustration. */}
+          <div className="w-full lg:w-1/2 flex justify-center items-center">
+            <div className="w-full max-w-md p-6 lg:p-0"> {/* Added padding for small screens */}
+              {/* Logo and Back Button (Adjusted for better spacing) */}
+              <div className="flex items-center mb-8">
                 <img
                   src="/images/kabserve_logo1.svg"
                   alt="Kabserve Logo"
@@ -186,12 +189,13 @@ const SignUpPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Illustration */}
-          <div className="hidden lg:flex flex-1 justify-start pl-60">
+          {/* Right: Illustration - only visible on large screens */}
+          {/* It takes half width on large screens and is centered vertically. */}
+          <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
             <img
               src="/images/sign-up art.png"
               alt="Students Illustration"
-              className="max-h-[500px] w-auto"
+              className="max-h-[500px] w-auto object-contain"
             />
           </div>
         </div>
