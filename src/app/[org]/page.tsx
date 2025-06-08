@@ -76,7 +76,7 @@ export default async function Page({ params }: { params: { org: string } }) {
                         </div>
 
                         <div className="hidden md:flex absolute right-3 -bottom-1 flex-row items-center gap-3">
-                            {[<Facebook />, <Instagram />, <Mail />].map(
+                            {[<Facebook key={"facebook"} />, <Instagram key={"instagram"} />, <Mail key={"mail"} />].map(
                                 (icon: any, index) => (
                                     <div
                                         key={index}
@@ -127,7 +127,17 @@ export default async function Page({ params }: { params: { org: string } }) {
                 <div className="flex flex-row gap-5 px-2">
                     <AvatarCard
                         title="President"
-                        secondaryTitle="Aldrei Santua"
+                        secondaryTitle="First Name Surname"
+                        imageUrl="placeholder2.png"
+                    />
+                    <AvatarCard
+                        title="VP for Internal Affairs"
+                        secondaryTitle="VP for Internal Affairs"
+                        imageUrl="placeholder2.png"
+                    />
+                    <AvatarCard
+                        title="VP for External Affairs"
+                        secondaryTitle="First Name Surname"
                         imageUrl="placeholder2.png"
                     />
                 </div>
@@ -154,22 +164,22 @@ export default async function Page({ params }: { params: { org: string } }) {
             <hr className="w-full h-0.5 border-none bg-dark mb-3" />
             <section className="flex flex-col blue-500 mb-10">
                 <div className="flex flex-row items-center gap-2">
-                    <div className="flex flex-row items-center gap-1 md:gap-2 bg-primary px-3 py-2 text-white rounded-xl font-semibold flex justify-center items-center">
+                    <button className="flex-row items-center gap-1 md:gap-2 bg-primary px-3 py-2 text-white rounded-xl font-semibold flex justify-center">
                         <Typography variant="p" className="font-semibold">
                             Events
                         </Typography>
-                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#DF5B13] flex justify-center items-center">
+                        <div className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-[#DF5B13] flex justify-center items-center">
                             <Typography variant="p">4</Typography>
                         </div>
-                    </div>
-                    <div className="flex flex-row items-center gap-1 md:gap-2 bg-primary px-3 py-2 text-white rounded-xl font-semibold flex justify-center items-center">
+                    </button>
+                    <button className="flex-row items-center gap-1 md:gap-2 text-primary border border-primary px-3 py-2 bg-white rounded-xl font-semibold flex justify-center">
                         <Typography variant="p" className="font-semibold">
                             Announcements
                         </Typography>
-                        <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#DF5B13] flex justify-center items-center">
+                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#DF5B13] flex justify-center items-center text-white">
                             <Typography variant="p">2</Typography>
                         </div>
-                    </div>
+                    </button>
                 </div>
 
                 <div className="flex flex-col gap-3 pt-3">

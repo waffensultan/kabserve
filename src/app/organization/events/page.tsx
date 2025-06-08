@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Typography from "@/components/typography/typography";
-import { MapPin } from "lucide-react";
+import { MapPin, CalendarPlus } from "lucide-react";
 import {
     Carousel,
     CarouselContent,
@@ -11,6 +11,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { UserRole } from "@/app/page";
 
 // Type definitions
 type DateHeaderProps = {
@@ -228,34 +229,53 @@ const CarouselEventCard: React.FC<CarouselEventCardProps> = ({
     location,
     organizer,
     organizerImg,
-}) => (
-    <div className="rounded-xl border border-primary/20 border-solid bg-primary/20 p-2 min-md:p-4 flex flex-col">
-        <Typography
-            variant="h6"
-            className="text-primary/80 font-light mb-4 md:mb-0"
+}) => {
+    const [savedRole, setSavedRole] = useState<UserRole | undefined>(undefined);
+
+    useEffect(() => {
+        if (typeof window !== "undefined" && window.localStorage) {
+            const role = localStorage.getItem("role");
+            if (role) {
+                setSavedRole(role as UserRole);
+            }
+        }
+    }, []);
+
+    return (
+        <Link
+            href={`/${savedRole}/event-info`}
+            className="rounded-xl border border-primary/20 border-solid bg-primary/20 p-2 min-md:p-4 flex flex-col"
         >
-            {dateInfo}
-        </Typography>
-        <div className="flex items-end">
             <Typography
-                variant="h4"
-                className="text-primary font-semibold leading-none min-md:h-16 min-md:my-3 max-sm:h-9"
+                variant="h6"
+                className="text-primary/80 font-light mb-4 md:mb-0"
             >
-                {title}
+                {dateInfo}
             </Typography>
-        </div>
-        <div className="flex flex-row gap-1 items-center mt-2 h-5 leading-none">
-            <EventLocation location={location} />
-        </div>
-        <div className="flex flex-row gap-1 items-center mt-1 h-5">
-            <EventOrganizer organizer={organizer} profileImg={organizerImg} />
-        </div>
-        <div className="flex flex-row gap-1 items-center mt-3">
-            <RegisterButton />
-            <EventParticipants mainProfileImg={organizerImg} />
-        </div>
-    </div>
-);
+            <div className="flex items-end">
+                <Typography
+                    variant="h4"
+                    className="text- font-semibold leading-none min-md:h-16 min-md:my-3 max-sm:h-9"
+                >
+                    {title}
+                </Typography>
+            </div>
+            <div className="flex flex-row gap-1 items-center mt-2 h-5 leading-none">
+                <EventLocation location={location} />
+            </div>
+            <div className="flex flex-row gap-1 items-center mt-1 h-5">
+                <EventOrganizer
+                    organizer={organizer}
+                    profileImg={organizerImg}
+                />
+            </div>
+            <div className="flex flex-row gap-1 items-center mt-3">
+                <RegisterButton />
+                <EventParticipants mainProfileImg={organizerImg} />
+            </div>
+        </Link>
+    );
+};
 
 export default function EventsPage(): React.ReactElement {
     const [eventsData, setEventsData] = useState<EventsData | null>(null);
@@ -311,18 +331,32 @@ export default function EventsPage(): React.ReactElement {
     return (
         <main className="flex flex-col gap-8 h-full">
             <div className="flex flex-col gap-2 mt-3">
-                <Typography
-                    variant="h1"
-                    className="font-semibold leading-tight text-primary text-4xl min-md:hidden"
-                >
-                    Events
-                </Typography>
-                <Typography
-                    variant="h1"
-                    className="font-semibold leading-tight text-primary text-4xl hidden md:flex"
-                >
-                    Events
-                </Typography>
+                <div className="flex items-center justify-between min-md:hidden">
+                    <Typography
+                        variant="h1"
+                        className="font-semibold leading-tight text-primary text-4xl min-md:hidden"
+                    >
+                        Events
+                    </Typography>
+                    <Link href={"/organization/create-event"}>
+                        <CalendarPlus />
+                    </Link>
+                </div>
+                <div className="items-center justify-between hidden md:flex">
+                    <Typography
+                        variant="h1"
+                        className="font-semibold leading-tight text-primary text-4xl hidden md:flex"
+                    >
+                        Events
+                    </Typography>
+                    <Link
+                        href={"/organization/create-event"}
+                        className="flex items-center gap-2 font-semibold text-white bg-[#27391C] py-2 px-3 rounded-xl"
+                    >
+                        <CalendarPlus />
+                        <span>Create an Event</span>
+                    </Link>
+                </div>
 
                 <hr className="h-0.5 bg-primary border-0" />
 
@@ -376,7 +410,7 @@ export default function EventsPage(): React.ReactElement {
                         <CarouselPrevious className="max-sm:hidden" />
                         <CarouselContent>
                             {eventsData.carouselEvents.map((event, idx) => (
-                                <CarouselItem key={idx} className="basis-2/3">
+                                <CarouselItem key={idx} className="basis-2/4">
                                     <CarouselEventCard
                                         dateInfo={event.dateInfo}
                                         title={event.title}

@@ -23,7 +23,6 @@ export default function Header() {
 
     const pathname = usePathname();
 
-
     useEffect(() => {
         if (typeof window !== "undefined" && window.localStorage) {
             const role = localStorage.getItem("role");
@@ -36,7 +35,7 @@ export default function Header() {
     const isExcluded =
         pathname.startsWith("/sign-up") ||
         pathname.startsWith("/login") ||
-        pathname === "/"
+        pathname === "/";
 
     const links = [
         {
@@ -127,7 +126,7 @@ export default function Header() {
                                     </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem className="font-semibold">
-                                    Sign Out
+                                    <Link href={"/"}>Sign Out</Link>
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>

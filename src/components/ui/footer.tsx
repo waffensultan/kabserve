@@ -9,7 +9,7 @@ export default function Footer() {
 
     const isAuth =
         pathname.startsWith("/sign-up") || pathname.startsWith("/login");
-    const isDark = pathname.startsWith("/continue-as");
+    const isDark = pathname === "/";
 
     const team = [
         "Waffen Ampatua",
@@ -31,7 +31,7 @@ export default function Footer() {
                     </li>
                     <li className="w-full flex flex-row py-7 px-1 gap-5">
                         <img
-                            src="images/kabserve_logo1.svg"
+                            src="/images/kabserve_logo1.svg"
                             alt="kabserve-logo"
                         />
                         <div className="w-full flex justify-end md:justify-between">
