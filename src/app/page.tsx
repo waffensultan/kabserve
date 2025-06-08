@@ -34,7 +34,7 @@ export default function ContinueAs() {
                     <img
                         src="/images/kabserve_logo_big.png"
                         alt="Kabserve Logo"
-                        className="max-h-50 md:max-h-100 md:-mt-30 object-contain"
+                        className="max-h-50 md:max-h-100 md:-mt-45 object-contain"
                     />
                     <span className="text-white font-semibold -mt-25 md:-mt-40 md:text-4xl mb-20">
                         Vibrant communities.{" "}
@@ -43,7 +43,7 @@ export default function ContinueAs() {
                         </span>{" "}
                         passion.
                     </span>
-                    <section className="flex flex-col w-full">
+                    <section className="flex flex-col w-full -mt-8">
                         <Typography className="text-white font-semibold">
                             {" "}
                             Continue as...

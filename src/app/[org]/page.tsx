@@ -55,7 +55,7 @@ export default async function Page({ params }: { params: { org: string } }) {
                             <Typography variant="h4" className="font-bold">
                                 2
                             </Typography>
-                            <Typography variant="h6">Organizations</Typography>
+                            <Typography variant="h6">Events</Typography>
                         </div>
                         <div className="w-0.5 flex bg-white h-10">&nbsp;</div>
                         <div className="flex flex-col items-center">
