@@ -44,10 +44,16 @@ const SignUpPage: React.FC = () => {
       newErrors.email = "Email must be a @cvsu.edu.ph address";
     }
     if (!password.trim()) newErrors.password = "Password is required";
-    if (!course.trim()) newErrors.course = "Course is required";
-    if (!section.trim()) newErrors.section = "Section is required";
-    if (!department.trim()) newErrors.department = "Department is required";
-    if (!agreeToTerms) newErrors.terms = "You must agree to the Terms and Conditions";
+
+    // Only validate course, section, department if role is student
+    if (role === "student") {
+      if (!course.trim()) newErrors.course = "Course is required";
+      if (!section.trim()) newErrors.section = "Section is required";
+      if (!department.trim()) newErrors.department = "Department is required";
+    }
+
+    if (!agreeToTerms)
+      newErrors.terms = "You must agree to the Terms and Conditions";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -70,13 +76,19 @@ const SignUpPage: React.FC = () => {
   return (
     <>
       <Background />
-      <div className="relative min-h-screen flex flex-col">
-        <div className="flex mt-18 items-center justify-center ">
-          {/* Left: Form */}
-          <div className="flex-1 flex justify-end pr-12">
-            <div className="w-full max-w-md">
+      {/* Main container: Centered and adds vertical padding */}
+      <div className="relative min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="flex flex-col lg:flex-row w-full max-w-4xl lg:max-w-6xl mx-auto">
+          {/* Left: Form Container */}
+          {/* On smaller screens (mobile), it takes full width and is centered. */}
+          {/* On larger screens (lg), it takes half width to make space for the illustration. */}
+          <div className="w-full lg:w-1/2 flex justify-center items-center">
+            <div className="w-full max-w-md p-6 lg:p-0">
+              {" "}
+              {/* Added padding for small screens, removed for large */}
               {/* Logo and Back Button */}
               <div className="flex items-center justify-between mb-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/kabserve_logo1.svg"
                   alt="Kabserve Logo"
@@ -85,12 +97,7 @@ const SignUpPage: React.FC = () => {
                 <Link href={"/login"}>
                   <button className="p-2 rounded-full hover:bg-white/10 cursor-pointer">
                     <span className="sr-only">Back</span>
-                    <svg
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="#fff"
-                    >
+                    <svg width="24" height="24" fill="none" stroke="#fff">
                       <path
                         d="M15 18l-6-6 6-6"
                         strokeWidth="2"
@@ -101,15 +108,14 @@ const SignUpPage: React.FC = () => {
                   </button>
                 </Link>
               </div>
-
               <h1 className="text-4xl font-bold text-white mb-2">
                 Hello, <br /> Kabsuhenyo!
               </h1>
               <p className="text-white/80 mb-8">
                 Start Your Journey with CvSU Organizations
               </p>
-
               <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+                {/* First Name and Surname - Always side-by-side */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <input
@@ -125,7 +131,9 @@ const SignUpPage: React.FC = () => {
                       required
                     />
                     {errors.firstName && (
-                      <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.firstName}
+                      </p>
                     )}
                   </div>
                   <div>
@@ -142,7 +150,9 @@ const SignUpPage: React.FC = () => {
                       required
                     />
                     {errors.surname && (
-                      <p className="text-red-500 text-sm mt-1">{errors.surname}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.surname}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -176,62 +186,77 @@ const SignUpPage: React.FC = () => {
                   required
                 />
                 {errors.password && (
-                  <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.password}
+                  </p>
                 )}
 
-                <div className="flex gap-5">
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Course"
-                      value={course}
-                      onChange={(e) => setCourse(e.target.value)}
-                      className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
-                        errors.course
-                          ? "border-red-500 text-red-500"
-                          : "border-white text-white"
-                      }`}
-                      required
-                    />
-                    {errors.course && (
-                      <p className="text-red-500 text-sm mt-1">{errors.course}</p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Section"
-                      value={section}
-                      onChange={(e) => setSection(e.target.value)}
-                      className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
-                        errors.section
-                          ? "border-red-500 text-red-500"
-                          : "border-white text-white"
-                      }`}
-                      required
-                    />
-                    {errors.section && (
-                      <p className="text-red-500 text-sm mt-1">{errors.section}</p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Department"
-                      value={department}
-                      onChange={(e) => setDepartment(e.target.value)}
-                      className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
-                        errors.department
-                          ? "border-red-500 text-red-500"
-                          : "border-white text-white"
-                      }`}
-                      required
-                    />
-                    {errors.department && (
-                      <p className="text-red-500 text-sm mt-1">{errors.department}</p>
-                    )}
-                  </div>
-                </div>
+                {/* Conditional fields based on role */}
+                {role === "student" && (
+                  <>
+                    {/* Course and Section - Always side-by-side */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Course"
+                          value={course}
+                          onChange={(e) => setCourse(e.target.value)}
+                          className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                            errors.course
+                              ? "border-red-500 text-red-500"
+                              : "border-white text-white"
+                          }`}
+                          required
+                        />
+                        {errors.course && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.course}
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Section"
+                          value={section}
+                          onChange={(e) => setSection(e.target.value)}
+                          className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                            errors.section
+                              ? "border-red-500 text-red-500"
+                              : "border-white text-white"
+                          }`}
+                          required
+                        />
+                        {errors.section && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {errors.section}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    {/* Department - Always full width */}
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Department"
+                        value={department}
+                        onChange={(e) => setDepartment(e.target.value)}
+                        className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                          errors.department
+                            ? "border-red-500 text-red-500"
+                            : "border-white text-white"
+                        }`}
+                        required
+                      />
+                      {errors.department && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.department}
+                        </p>
+                      )}
+                    </div>
+                  </>
+                )}
 
                 <div className="flex items-center justify-between text-sm text-white">
                   <label className="flex items-center gap-2">
@@ -243,24 +268,27 @@ const SignUpPage: React.FC = () => {
                   </a>
                 </div>
 
-                <div className="flex items-center justify-between text-sm text-white">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input 
-                      type="checkbox" 
-                      className="accent-yellow-400" 
-                      checked={agreeToTerms}
-                      onChange={(e) => setAgreeToTerms(e.target.checked)}
-                    />
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <input
+                    type="checkbox"
+                    id="agreeToTerms"
+                    className="accent-yellow-400"
+                    checked={agreeToTerms}
+                    onChange={(e) => setAgreeToTerms(e.target.checked)}
+                  />
+                  <label htmlFor="agreeToTerms" className="cursor-pointer">
+                    I agree to the{" "}
                     <span
-                      className="hover:underline"
+                      className="underline hover:text-yellow-400"
                       onClick={() => setIsTnCOpen(true)}
                       role="button"
                       tabIndex={0}
                       onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") setIsTnCOpen(true);
+                        if (e.key === "Enter" || e.key === " ")
+                          setIsTnCOpen(true);
                       }}
                     >
-                      I agree to the Terms and Conditions
+                      Terms and Conditions
                     </span>
                   </label>
                 </div>
@@ -271,7 +299,7 @@ const SignUpPage: React.FC = () => {
                 <button
                   type="submit"
                   className={`w-full ${
-                    agreeToTerms 
+                    agreeToTerms
                       ? "bg-yellow-400 text-green-900 hover:bg-yellow-500 cursor-pointer"
                       : "bg-gray-400 text-gray-700 cursor-not-allowed"
                   } font-bold py-2 rounded transition active:scale-97`}
@@ -282,22 +310,32 @@ const SignUpPage: React.FC = () => {
               </form>
 
               <div className="mt-6 text-left text-sm">
-                <Link href="/guest/" className="text-white">
-                  Continue as{" "}
+                <Link href="/login" className="text-white">
+                  Already have an account?{" "}
                   <span className="text-yellow-500 hover:underline">
-                    Guest
+                    Log in
                   </span>
+                </Link>
+              </div>
+              <div className="my-2 text-left text-sm text-white/50">
+                <span>or</span>
+              </div>
+              <div className="text-left text-sm">
+                <Link href="/guest" className="text-white">
+                  Continue as{" "}
+                  <span className="text-yellow-500 hover:underline">Guest</span>
                 </Link>
               </div>
             </div>
           </div>
 
           {/* Right: Illustration */}
-          <div className="hidden lg:flex flex-1 justify-start pl-60">
+          <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/sign-up art.png"
               alt="Students Illustration"
-              className="max-h-[500px] w-auto"
+              className="max-h-[500px] w-auto object-contain"
             />
           </div>
         </div>
