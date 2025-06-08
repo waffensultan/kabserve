@@ -2,189 +2,330 @@
 
 import Background from "@/components/background";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TermsAndConditions from "@/components/TnC";
+import { useRouter } from "next/navigation";
+
+type UserRole = "student" | "organization" | "guest";
 
 const SignUpPage: React.FC = () => {
-    const [isTnCOpen, setIsTnCOpen] = useState(false);
+  const router = useRouter();
 
-    return (
-        <>
-            <Background />
-            <div className="relative min-h-screen flex flex-col">
-                <div className="flex mt-18 items-center justify-center ">
-                    {/* Left: Form */}
-                    <div className="flex-1 flex justify-end pr-12">
-                        <div className="w-full max-w-md">
-                            {/* Logo and Back Button */}
-                            <div className="flex items-center justify-between mb-8">
-                                <img
-                                    src="/images/kabserve_logo1.svg"
-                                    alt="Kabserve Logo"
-                                    className="h-8"
-                                />
-                                <Link href={"/login"}>
-                                    <button className="p-2 rounded-full hover:bg-white/10 cursor-pointer">
-                                        <span className="sr-only">Back</span>
-                                        <svg
-                                            width="24"
-                                            height="24"
-                                            fill="none"
-                                            stroke="#fff"
-                                        >
-                                            <path
-                                                d="M15 18l-6-6 6-6"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            />
-                                        </svg>
-                                    </button>
-                                </Link>
-                            </div>
+  // Form state
+  const [firstName, setFirstName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [course, setCourse] = useState("");
+  const [section, setSection] = useState("");
+  const [department, setDepartment] = useState("");
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isTnCOpen, setIsTnCOpen] = useState(false);
+  const [role, setRole] = useState<UserRole>("student"); // Default to student
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
-                            <h1 className="text-4xl font-bold text-white mb-2">
-                                Hello, <br /> Kabsuhenyo!
-                            </h1>
-                            <p className="text-white/80 mb-8">
-                                Start Your Journey with CvSU Organizations
-                            </p>
+  useEffect(() => {
+    // Get role from localStorage as set by landing page
+    if (typeof window !== "undefined" && window.localStorage) {
+      const savedRole = localStorage.getItem("role");
+      if (savedRole === "student" || savedRole === "organization") {
+        setRole(savedRole);
+      }
+    }
+  }, []);
 
-                            <form className="space-y-4">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <input
-                                        type="text"
-                                        placeholder="First Name"
-                                        className="bg-transparent border border-white rounded px-4 py-2 text-white placeholder:text-white/50 w-full"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Surname"
-                                        className="bg-transparent border border-white rounded px-4 py-2 text-white placeholder:text-white/50 w-full"
-                                    />
-                                </div>
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!firstName.trim()) newErrors.firstName = "First Name is required";
+    if (!surname.trim()) newErrors.surname = "Surname is required";
+    if (!email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!email.endsWith("@cvsu.edu.ph")) {
+      newErrors.email = "Email must be a @cvsu.edu.ph address";
+    }
+    if (!password.trim()) newErrors.password = "Password is required";
+    if (!course.trim()) newErrors.course = "Course is required";
+    if (!section.trim()) newErrors.section = "Section is required";
+    if (!department.trim()) newErrors.department = "Department is required";
+    if (!agreeToTerms) newErrors.terms = "You must agree to the Terms and Conditions";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-                                <input
-                                    type="email"
-                                    placeholder="Email Address (@cvsu.edu.ph)"
-                                    className="w-full bg-transparent border border-white rounded px-4 py-2 text-white placeholder:text-white/50"
-                                />
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    className="w-full bg-transparent border border-white rounded px-4 py-2 text-white placeholder:text-white/50"
-                                />
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      // Here you would normally send the data to your backend API
+      // For now, just redirect based on role
+      if (role === "student") {
+        router.push("/student");
+      } else if (role === "organization") {
+        router.push("/organization");
+      } else {
+        router.push("/guest");
+      }
+    }
+  };
 
-                                {/* 🔽 NEW FIELDS START HERE */}
-                                <div className="flex gap-5">
-                                    <input
-                                        type="text"
-                                        placeholder="Course"
-                                        className="w-full bg-transparent border border-white rounded px-4 py-2 text-white placeholder:text-white/50"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Section"
-                                        className="w-full bg-transparent border border-white rounded px-4 py-2 text-white placeholder:text-white/50"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Department"
-                                        className="w-full bg-transparent border border-white rounded px-4 py-2 text-white placeholder:text-white/50"
-                                    />
-                                </div>
-                                {/* 🔼 NEW FIELDS END HERE */}
-
-                                <div className="flex items-center justify-between text-sm text-white">
-                                    <label className="flex items-center gap-2">
-                                        <input
-                                            type="checkbox"
-                                            className="accent-yellow-400"
-                                        />
-                                        Remember me
-                                    </label>
-                                    <a href="#" className="hover:underline">
-                                        Forgot Password?
-                                    </a>
-                                </div>
-
-                                <div className="flex items-center justify-between text-sm text-white">
-                                    <label className="flex items-center gap-2 cursor-pointer">
-                                        <input
-                                            type="checkbox"
-                                            className="accent-yellow-400"
-                                        />
-                                        <span
-                                            className="hover:underline"
-                                            onClick={() => setIsTnCOpen(true)}
-                                            role="button"
-                                            tabIndex={0}
-                                            onKeyDown={(e) => {
-                                                if (
-                                                    e.key === "Enter" ||
-                                                    e.key === " "
-                                                )
-                                                    setIsTnCOpen(true);
-                                            }}
-                                        >
-                                            Terms and Conditions
-                                        </span>
-                                    </label>
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className="cursor-pointer w-full bg-yellow-400 text-green-900 font-bold py-2 rounded hover:bg-yellow-500 transition active:scale-97"
-                                >
-                                    Sign Up
-                                </button>
-                            </form>
-
-                            <div className="mt-6 text-left text-sm">
-                                <Link href="/guest/" className="text-white">
-                                    Continue as{" "}
-                                    <span className="text-yellow-500 hover:underline">
-                                        Guest
-                                    </span>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right: Illustration */}
-                    <div className="hidden lg:flex flex-1 justify-start pl-60">
-                        <img
-                            src="/images/sign-up art.png"
-                            alt="Students Illustration"
-                            className="max-h-[500px] w-auto"
-                        />
-                    </div>
-                </div>
-            </div>
-
-            {/* Terms and Conditions Modal with blurred background */}
-            {isTnCOpen && (
-                <div
-                    className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm"
-                    onClick={() => setIsTnCOpen(false)}
-                >
-                    <div
-                        className="bg-white rounded-lg max-w-lg w-full max-h-[80vh] overflow-auto p-6 relative shadow-lg"
-                        onClick={(e) => e.stopPropagation()}
+  return (
+    <>
+      <Background />
+      <div className="relative min-h-screen flex flex-col">
+        <div className="flex mt-18 items-center justify-center ">
+          {/* Left: Form */}
+          <div className="flex-1 flex justify-end pr-12">
+            <div className="w-full max-w-md">
+              {/* Logo and Back Button */}
+              <div className="flex items-center justify-between mb-8">
+                <img
+                  src="/images/kabserve_logo1.svg"
+                  alt="Kabserve Logo"
+                  className="h-8"
+                />
+                <Link href={"/login"}>
+                  <button className="p-2 rounded-full hover:bg-white/10 cursor-pointer">
+                    <span className="sr-only">Back</span>
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="#fff"
                     >
-                        <button
-                            className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
-                            onClick={() => setIsTnCOpen(false)}
-                            aria-label="Close Terms and Conditions"
-                        >
-                            ✕
-                        </button>
-                        <TermsAndConditions />
-                    </div>
+                      <path
+                        d="M15 18l-6-6 6-6"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </Link>
+              </div>
+
+              <h1 className="text-4xl font-bold text-white mb-2">
+                Hello, <br /> Kabsuhenyo!
+              </h1>
+              <p className="text-white/80 mb-8">
+                Start Your Journey with CvSU Organizations
+              </p>
+
+              <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="First Name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      className={`bg-transparent border rounded px-4 py-2 placeholder:text-white/50 w-full ${
+                        errors.firstName
+                          ? "border-red-500 text-red-500"
+                          : "border-white text-white"
+                      }`}
+                      required
+                    />
+                    {errors.firstName && (
+                      <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Surname"
+                      value={surname}
+                      onChange={(e) => setSurname(e.target.value)}
+                      className={`bg-transparent border rounded px-4 py-2 placeholder:text-white/50 w-full ${
+                        errors.surname
+                          ? "border-red-500 text-red-500"
+                          : "border-white text-white"
+                      }`}
+                      required
+                    />
+                    {errors.surname && (
+                      <p className="text-red-500 text-sm mt-1">{errors.surname}</p>
+                    )}
+                  </div>
                 </div>
-            )}
-        </>
-    );
+
+                <input
+                  type="email"
+                  placeholder="Email Address (@cvsu.edu.ph)"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                    errors.email
+                      ? "border-red-500 text-red-500"
+                      : "border-white text-white"
+                  }`}
+                  required
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
+
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                    errors.password
+                      ? "border-red-500 text-red-500"
+                      : "border-white text-white"
+                  }`}
+                  required
+                />
+                {errors.password && (
+                  <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+                )}
+
+                <div className="flex gap-5">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Course"
+                      value={course}
+                      onChange={(e) => setCourse(e.target.value)}
+                      className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                        errors.course
+                          ? "border-red-500 text-red-500"
+                          : "border-white text-white"
+                      }`}
+                      required
+                    />
+                    {errors.course && (
+                      <p className="text-red-500 text-sm mt-1">{errors.course}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Section"
+                      value={section}
+                      onChange={(e) => setSection(e.target.value)}
+                      className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                        errors.section
+                          ? "border-red-500 text-red-500"
+                          : "border-white text-white"
+                      }`}
+                      required
+                    />
+                    {errors.section && (
+                      <p className="text-red-500 text-sm mt-1">{errors.section}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Department"
+                      value={department}
+                      onChange={(e) => setDepartment(e.target.value)}
+                      className={`w-full bg-transparent border rounded px-4 py-2 placeholder:text-white/50 ${
+                        errors.department
+                          ? "border-red-500 text-red-500"
+                          : "border-white text-white"
+                      }`}
+                      required
+                    />
+                    {errors.department && (
+                      <p className="text-red-500 text-sm mt-1">{errors.department}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-sm text-white">
+                  <label className="flex items-center gap-2">
+                    <input type="checkbox" className="accent-yellow-400" />
+                    Remember me
+                  </label>
+                  <a href="#" className="hover:underline">
+                    Forgot Password?
+                  </a>
+                </div>
+
+                <div className="flex items-center justify-between text-sm text-white">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      className="accent-yellow-400" 
+                      checked={agreeToTerms}
+                      onChange={(e) => setAgreeToTerms(e.target.checked)}
+                    />
+                    <span
+                      className="hover:underline"
+                      onClick={() => setIsTnCOpen(true)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") setIsTnCOpen(true);
+                      }}
+                    >
+                      I agree to the Terms and Conditions
+                    </span>
+                  </label>
+                </div>
+                {errors.terms && (
+                  <p className="text-red-500 text-sm mt-1">{errors.terms}</p>
+                )}
+
+                <button
+                  type="submit"
+                  className={`w-full ${
+                    agreeToTerms 
+                      ? "bg-yellow-400 text-green-900 hover:bg-yellow-500 cursor-pointer"
+                      : "bg-gray-400 text-gray-700 cursor-not-allowed"
+                  } font-bold py-2 rounded transition active:scale-97`}
+                  disabled={!agreeToTerms}
+                >
+                  Sign Up
+                </button>
+              </form>
+
+              <div className="mt-6 text-left text-sm">
+                <Link href="/guest/" className="text-white">
+                  Continue as{" "}
+                  <span className="text-yellow-500 hover:underline">
+                    Guest
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Illustration */}
+          <div className="hidden lg:flex flex-1 justify-start pl-60">
+            <img
+              src="/images/sign-up art.png"
+              alt="Students Illustration"
+              className="max-h-[500px] w-auto"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Terms and Conditions Modal with blurred background */}
+      {isTnCOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm"
+          onClick={() => setIsTnCOpen(false)}
+        >
+          <div
+            className="bg-white rounded-lg max-w-lg w-full max-h-[80vh] overflow-auto p-6 relative shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+              onClick={() => setIsTnCOpen(false)}
+              aria-label="Close Terms and Conditions"
+            >
+              ✕
+            </button>
+            <TermsAndConditions />
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default SignUpPage;
