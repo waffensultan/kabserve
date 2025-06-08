@@ -185,13 +185,13 @@ export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
     eventImg,
     open = true,
 }) => {
-    const [role, setRole] = useState<UserRole>("student");
+    const [role, setRole] = useState<UserRole>("student"); // default to student
 
     useEffect(() => {
         if (typeof window !== "undefined" && window.localStorage) {
             const savedRole = localStorage.getItem("role");
-            if (savedRole === "student" || savedRole === "organization") {
-                setRole(savedRole);
+            if (savedRole) {
+                setRole(savedRole as UserRole);
             }
         }
     }, []);
