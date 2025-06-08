@@ -16,30 +16,25 @@ export default async function Page() {
     return (
         <main className="flex flex-col gap-8 h-full">
             <div className="flex flex-col gap-2 mt-3">
-                <Typography
-                    variant="h1"
-                    className="font-semibold leading-tight text-primary text-4xl min-md:hidden"
-                >
+                <h1 className="font-semibold leading-tight text-primary text-4xl flex min-md:hidden">
                     Discover Organizations
-                </Typography>
+                </h1>
                 <Typography variant="h2" className="min-md:hidden">
                     Discover a vibrant network of student-led organizations that
                     foster leadership, creativity, and collaboration—join a
                     community where your passions thrive, your voice matters,
                     and your potential is amplified.
                 </Typography>
-                <Typography
-                    variant="h2"
-                    className="font-semibold leading-tight text-primary text-4xl hidden md:flex"
-                >
+                <h1 className="font-semibold leading-tight text-primary text-4xl hidden md:flex">
                     Discover Organizations
-                </Typography>
+                </h1>
                 <Typography variant="h4" className="hidden md:flex">
                     Discover a vibrant network of student-led organizations that
                     foster leadership, creativity, and collaboration—join a
                     community where your passions thrive, your voice matters,
                     and your potential is amplified.
                 </Typography>
+ 
             </div>
 
             <section className="flex flex-col">

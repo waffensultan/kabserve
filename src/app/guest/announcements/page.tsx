@@ -1,6 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Typography from "@/components/typography/typography";
 
+import { HeartIcon } from "@heroicons/react/24/solid";
+import { HeartIcon as OutlineHeartIcon } from "@heroicons/react/24/outline";
+
 export default function AnnouncementsPage() {
     return (
         <main>
@@ -65,6 +68,10 @@ export default function AnnouncementsPage() {
                         <p>#WeCodeAsOne</p>
                         <p>#CSSOBlockchainDecoders</p>
                     </div>
+                    <div className="flex items-center gap-1 mt-2 text-[#f31a7f] text-xs font-semibold">
+                        <HeartIcon className="size-5 text-[#f31a7f]" />
+                        <span>624</span>
+                    </div>
                 </div>
             </div>
 
@@ -101,6 +108,11 @@ export default function AnnouncementsPage() {
                     </div>
                     <div className="">
                         <img src="/images/csso_announcement.png" alt="" />
+                    </div>
+
+                    <div className="flex items-center gap-1 mt-2 text-muted text-xs font-semibold">
+                        <OutlineHeartIcon className="size-5" />
+                        <span>624</span>
                     </div>
                 </div>
             </div>

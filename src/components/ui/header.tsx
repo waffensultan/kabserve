@@ -1,6 +1,7 @@
 "use client";
 
 import Typography from "@/components/typography/typography";
+import SearchInput from "./search-input";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -48,7 +49,7 @@ export default function Header({ user }: HeaderProps) {
             <nav className="p-2 mb-5 flex w-full justify-between items-center sticky top-0 bg-light/70 backdrop-blur-md z-[100]">
                 <ul className="flex items-center lg:gap-14 xl:gap-28">
                     <li>
-                        <Link href={`/`}>
+                        <Link href={`/${user}`}>
                             <img
                                 src="/images/kabserve_logo1.svg"
                                 alt="kabserve-logo"
@@ -80,11 +81,20 @@ export default function Header({ user }: HeaderProps) {
                     </ul>
                 </ul>
                 <ul className="flex items-center gap-4 text-muted">
-                    <li>
-                        <Search />
+                    <li className="flex items-center gap-2 mb-2">
+                        <SearchInput />
                     </li>
                     <li>
-                        <Bell />
+                        <DropdownMenu modal={false}>
+                            <DropdownMenuTrigger>
+                                <Bell />
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="bg-primary/90 p-6 font-semibold border-[#FFFDF6] backdrop-blur-md text-white z-[1000]">
+                                <DropdownMenuItem>
+                                    <span>No new notifications.</span>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </li>
                     <li>
                         <DropdownMenu modal={false}>

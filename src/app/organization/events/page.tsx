@@ -321,23 +321,17 @@ export default function EventsPage(): React.ReactElement {
         <main className="flex flex-col gap-8 h-full">
             <div className="flex flex-col gap-2 mt-3">
                 <div className="flex items-center justify-between min-md:hidden">
-                    <Typography
-                        variant="h1"
-                        className="font-semibold leading-tight text-primary text-4xl min-md:hidden"
-                    >
+                    <h1 className="font-semibold leading-tight text-primary text-4xl flex min-md:hidden">
                         Events
-                    </Typography>
+                    </h1>
                     <Link href={"/organization/create-event"}>
                         <CalendarPlus />
                     </Link>
                 </div>
                 <div className="items-center justify-between hidden md:flex">
-                    <Typography
-                        variant="h1"
-                        className="font-semibold leading-tight text-primary text-4xl hidden md:flex"
-                    >
+                    <h1 className="font-semibold leading-tight text-primary text-4xl hidden md:flex">
                         Events
-                    </Typography>
+                    </h1>
                     <Link
                         href={"/organization/create-event"}
                         className="flex items-center gap-2 font-semibold text-white bg-[#27391C] py-2 px-3 rounded-xl"

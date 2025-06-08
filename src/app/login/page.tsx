@@ -104,12 +104,12 @@ const SignUpPage: React.FC = () => {
                             </form>
 
                             <div className="mt-6 text-left text-sm">
-                                <a href="#" className="text-white">
+                                <Link href="/sign-up" className="text-white">
                                     Don&apos;t have an account?{" "}
                                     <span className="text-yellow-500 hover:underline">
                                         Sign up
                                     </span>
-                                </a>
+                                </Link>
                             </div>
                             <div className="my-2 text-left text-sm text-white/50">
                                 <span>or</span>

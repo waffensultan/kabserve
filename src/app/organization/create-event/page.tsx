@@ -45,29 +45,24 @@ export default function CreateAnEvent() {
                     >
                         May 28 | Wednesday | 1:00 PM
                     </Typography>
-                    <div className="flex-row items-center gap-1 hidden lg:flex">
+                    <div className="flex items-center gap-1 mt-3">
                         <PinIcon />
-                        <Typography variant="h5" className="text-primary">
-                            Add Event Location
-                        </Typography>
+                        <input
+                            type="text"
+                            autoFocus
+                            placeholder="Add event location..."
+                            className="focus:outline-none"
+                        />
                     </div>
-                    <div className="flex flex-row items-center gap-1 lg:hidden">
-                        <PinIcon />
-                        <Typography variant="h3" className="text-primary">
-                            Add Event Location
-                        </Typography>
-                    </div>
-                    <div className="flex-row items-center gap-1 hidden lg:flex">
+
+                    <div className="flex items-center gap-1">
                         <PlusIcon />
-                        <Typography variant="h5" className="text-primary">
-                            Add Event Description
-                        </Typography>
-                    </div>
-                    <div className="flex flex-row items-center gap-1  lg:hidden">
-                        <PlusIcon />
-                        <Typography variant="h3" className="text-primary">
-                            Add Event Description
-                        </Typography>
+                        <input
+                            type="text"
+                            autoFocus
+                            placeholder="Add event description..."
+                            className="focus:outline-none"
+                        />
                     </div>
                     <button className="mt-4 font-semibold bg-primary text-white rounded-xl px-13 py-1 self-start">
                         Save

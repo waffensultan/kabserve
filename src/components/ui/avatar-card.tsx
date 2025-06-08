@@ -6,19 +6,19 @@ interface AvatarCardProps {
     imageUrl: string;
 }
 
-const AvatarCard = ({ title, secondaryTitle  }: AvatarCardProps) => {
+const AvatarCard = ({ title, secondaryTitle }: AvatarCardProps) => {
     return (
-        <article className="bg-gradient-to-t from-[#5E5E5E] to-[#C4C4C4] relative flex aspect-square w-40 sm:w-52 md:w-64 lg:w-72 xl:w-80 rounded-2xl shadow-xl border border-muted/10">
-            {/* <img
-                src={`/images/${imageUrl}`}
-                alt={`${title}-avatar-image`}
-                className="w-full h-full object-cover absolute rounded-2xl"
-            /> */}
-            <section className="min-h-12 lg:min-h-18 w-full bg-primary/95 text-white py-1.5 px-3 rounded-b-2xl tracking-wide self-end z-50">
-                <Typography variant="h5" className="font-bold">
+        <article className="bg-gradient-to-t from-[#5E5E5E] to-[#C4C4C4] relative flex flex-col aspect-square w-40 sm:w-52 md:w-64 lg:w-72 xl:w-80 rounded-2xl shadow-xl border border-muted/10 overflow-hidden">
+            <div className="flex-grow" />
+
+            <section className="w-full bg-primary/95 text-white py-2 px-3 rounded-b-2xl z-50">
+                <Typography variant="h5" className="font-bold truncate">
                     {title}
                 </Typography>
-                <Typography variant="h5" className="text-muted">
+                <Typography
+                    variant="h5"
+                    className="text-muted leading-tight line-clamp-2"
+                >
                     {secondaryTitle}
                 </Typography>
             </section>

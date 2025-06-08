@@ -1,6 +1,7 @@
 import Typography from "@/components/typography/typography";
 import AvatarCard from "@/components/ui/avatar-card";
-import { FeaturedEventCard } from "../student/events/page";
+import Panel from "@/components/panel";
+
 import { Facebook, Instagram, Mail } from "lucide-react";
 
 import { promises as fs } from "fs";
@@ -76,18 +77,20 @@ export default async function Page({ params }: { params: { org: string } }) {
                         </div>
 
                         <div className="hidden md:flex absolute right-3 -bottom-1 flex-row items-center gap-3">
-                            {[<Facebook key={"facebook"} />, <Instagram key={"instagram"} />, <Mail key={"mail"} />].map(
-                                (icon: any, index) => (
-                                    <div
-                                        key={index}
-                                        className="cursor-pointer hover:bg-blue-400 duration-150 p-1 rounded-full bg-[#D9D9D9] flex justify-center items-center"
-                                    >
-                                        <div className="w-15 h-15 rounded-full p-2 bg-white flex justify-center items-center">
-                                            {icon}
-                                        </div>
+                            {[
+                                <Facebook key={"facebook"} />,
+                                <Instagram key={"instagram"} />,
+                                <Mail key={"mail"} />,
+                            ].map((icon: any, index) => (
+                                <div
+                                    key={index}
+                                    className="cursor-pointer hover:bg-success duration-150 p-1 rounded-full bg-[#D9D9D9] flex justify-center items-center"
+                                >
+                                    <div className="w-15 h-15 rounded-full p-2 bg-white flex justify-center items-center">
+                                        {icon}
                                     </div>
-                                )
-                            )}
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-center items-center mt-4">
@@ -162,40 +165,7 @@ export default async function Page({ params }: { params: { org: string } }) {
                 </div>
             )}
             <hr className="w-full h-0.5 border-none bg-dark mb-3" />
-            <section className="flex flex-col blue-500 mb-10">
-                <div className="flex flex-row items-center gap-2">
-                    <button className="flex-row items-center gap-1 md:gap-2 bg-primary px-3 py-2 text-white rounded-xl font-semibold flex justify-center">
-                        <Typography variant="p" className="font-semibold">
-                            Events
-                        </Typography>
-                        <div className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-[#DF5B13] flex justify-center items-center">
-                            <Typography variant="p">4</Typography>
-                        </div>
-                    </button>
-                    <button className="flex-row items-center gap-1 md:gap-2 text-primary border border-primary px-3 py-2 bg-white rounded-xl font-semibold flex justify-center">
-                        <Typography variant="p" className="font-semibold">
-                            Announcements
-                        </Typography>
-                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#DF5B13] flex justify-center items-center text-white">
-                            <Typography variant="p">2</Typography>
-                        </div>
-                    </button>
-                </div>
-
-                <div className="flex flex-col gap-3 pt-3">
-                    {Array.from({ length: 5 }).map((item, index) => (
-                        <FeaturedEventCard
-                            key={index}
-                            time="1:00 PM"
-                            title="𝗖𝗦𝗦𝗢 𝗕𝗹𝗼𝗰𝗸𝗰𝗵𝗮𝗶𝗻 𝗗𝗲𝗰𝗼𝗱𝗲𝗿𝘀: 𝗪𝗲𝗯𝟯 𝗙𝗼𝘂𝗻𝗱𝗮𝘁𝗶𝗼𝗻𝘀 & 𝗦𝗺𝗮𝗿𝘁 𝗖𝗼𝗻𝘁𝗿𝗮𝗰𝘁 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗺𝗲𝗻t"
-                            location="CEIT Conference Room"
-                            organizer="Computer Science Student Organization"
-                            organizerImg="/images/csso_profile.jpg"
-                            eventImg="/images/csso_event1.jpg"
-                        />
-                    ))}
-                </div>
-            </section>
+            <Panel />
         </main>
     );
 }
