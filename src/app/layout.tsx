@@ -1,9 +1,7 @@
-import Transition from "@/components/ui/transition";
-import Header from "@/components/ui/header";
-import Footer from "@/components/ui/footer";
-
 import type { Metadata } from "next";
 import "./globals.css";
+
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
     title: "Kabserve",
@@ -17,13 +15,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className="h-screen overflow-auto flex flex-col justify-between">
-                <Header />
-                <main className="px-5 md:px-10 lg:px-29 xl:px-43 flex-grow">
-                    <Transition>{children}</Transition>
-                </main>
-                <Footer />
+            <body>
+                {children}
             </body>
         </html>
-    );
+    )
 }

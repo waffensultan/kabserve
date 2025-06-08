@@ -15,22 +15,13 @@ import { usePathname } from "next/navigation";
 
 import { Search, Bell } from "lucide-react";
 
-import { useState, useEffect } from "react";
 import { UserRole } from "@/app/page";
 
-export default function Header() {
-    const [savedRole, setSavedRole] = useState<UserRole | undefined>(undefined);
-
+interface HeaderProps {
+    user: UserRole;
+}
+export default function Header({ user }: HeaderProps) {
     const pathname = usePathname();
-
-    useEffect(() => {
-        if (typeof window !== "undefined" && window.localStorage) {
-            const role = localStorage.getItem("role");
-            if (role) {
-                setSavedRole(role as UserRole);
-            }
-        }
-    }, []);
 
     const isExcluded =
         pathname.startsWith("/sign-up") ||
@@ -40,15 +31,15 @@ export default function Header() {
     const links = [
         {
             link: "Organizations",
-            path: `/${savedRole}`,
+            path: `/`,
         },
         {
             link: "Announcements",
-            path: `/${savedRole}/announcements`,
+            path: `/announcements`,
         },
         {
             link: "Events",
-            path: `/${savedRole}/events`,
+            path: `/events`,
         },
     ];
 
@@ -57,7 +48,7 @@ export default function Header() {
             <nav className="p-2 mb-5 flex w-full justify-between items-center sticky top-0 bg-light/70 backdrop-blur-md z-[100]">
                 <ul className="flex items-center lg:gap-14 xl:gap-28">
                     <li>
-                        <Link href={`/${savedRole}`}>
+                        <Link href={`/`}>
                             <img
                                 src="/images/kabserve_logo1.svg"
                                 alt="kabserve-logo"
@@ -65,18 +56,27 @@ export default function Header() {
                         </Link>
                     </li>
                     <ul className="hidden lg:flex font-semibold lg:gap-9">
-                        {links.map((link) => (
-                            <li
-                                className={`${pathname === link.path ? "text-dark" : "text-muted"} duration-100`}
-                                key={link.path}
-                            >
-                                <Link href={link.path}>
-                                    <Typography variant="h5">
-                                        {link.link}
-                                    </Typography>
-                                </Link>
-                            </li>
-                        ))}
+                        {links.map((link) => {
+                            const href =
+                                link.path === "/"
+                                    ? `/${user}`
+                                    : `/${user}${link.path}`;
+
+                            const isActive = pathname === href;
+
+                            return (
+                                <li
+                                    key={link.path}
+                                    className={`${isActive ? "text-dark" : "text-muted"} duration-100`}
+                                >
+                                    <Link href={href}>
+                                        <Typography variant="h5">
+                                            {link.link}
+                                        </Typography>
+                                    </Link>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </ul>
                 <ul className="flex items-center gap-4 text-muted">
@@ -119,7 +119,7 @@ export default function Header() {
                                     className="font-semibold"
                                 >
                                     <Link
-                                        href={`/${savedRole}/profile`}
+                                        href={`/${user}/profile`}
                                         className="cursor-pointer"
                                     >
                                         View Profile

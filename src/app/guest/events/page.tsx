@@ -230,20 +230,9 @@ const CarouselEventCard: React.FC<CarouselEventCardProps> = ({
     organizer,
     organizerImg,
 }) => {
-    const [savedRole, setSavedRole] = useState<UserRole | undefined>(undefined);
-
-    useEffect(() => {
-        if (typeof window !== "undefined" && window.localStorage) {
-            const role = localStorage.getItem("role");
-            if (role) {
-                setSavedRole(role as UserRole);
-            }
-        }
-    }, []);
-
     return (
         <Link
-            href={`/${savedRole}/event-info`}
+            href={`/guest/event-info`}
             className="rounded-xl border border-primary/20 border-solid bg-primary/20 p-2 min-md:p-4 flex flex-col"
         >
             <Typography

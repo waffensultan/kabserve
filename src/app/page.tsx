@@ -26,7 +26,7 @@ export default function ContinueAs() {
     }, [selected]);
 
     return (
-        <>
+        <div className="px-5 md:px-10 lg:px-29 xl:px-43 flex-grow">
             <Background />
             <main className="flex flex-col gap-10 justify-center items-center py-15">
                 <section className="flex flex-col w-full">
@@ -140,6 +140,6 @@ export default function ContinueAs() {
                     </button>
                 </Link>
             </main>
-        </>
+        </div>
     );
 }
