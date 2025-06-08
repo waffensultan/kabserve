@@ -184,43 +184,58 @@ export const FeaturedEventCard: React.FC<FeaturedEventCardProps> = ({
     organizerImg,
     eventImg,
     open = true,
-}) => (
-    <Link
-        href="event-info"
-        className="block no-underline rounded-2xl border border-primary border-solid bg-primary/80 p-4 bg-linear-10 hover:from-warning to-70% hover:to-primary transition-all duration-300"
-    >
-        <div className="flex flex-row justify-between gap-3">
-            <div className="flex flex-col gap-1.5">
-                <Typography variant="p" className="text-light/60 font-light">
-                    {time}
-                </Typography>
+}) => {
+    const [role, setRole] = useState<UserRole>("student");
 
-                <Typography
-                    variant="h4"
-                    className="text-light font-semibold leading-tight"
-                >
-                    {title}
-                </Typography>
+    useEffect(() => {
+        if (typeof window !== "undefined" && window.localStorage) {
+            const savedRole = localStorage.getItem("role");
+            if (savedRole === "student" || savedRole === "organization") {
+                setRole(savedRole);
+            }
+        }
+    }, []);
 
-                <EventLocation location={location} isDark={true} />
-                <EventOrganizer
-                    organizer={organizer}
-                    profileImg={organizerImg}
-                    isDark={true}
-                />
-                <div className="flex flex-row gap-1 items-center mt-1">
-                    {open && <RegisterButton />}
-                    <EventParticipants mainProfileImg={organizerImg} />
+    return (
+        <Link
+            href={`/${role}/event-info`}
+            className="block no-underline rounded-2xl border border-primary border-solid bg-primary/80 p-4 bg-linear-10 hover:from-warning to-70% hover:to-primary transition-all duration-300"
+        >
+            <div className="flex flex-row justify-between gap-3">
+                <div className="flex flex-col gap-1.5">
+                    <Typography
+                        variant="p"
+                        className="text-light/60 font-light"
+                    >
+                        {time}
+                    </Typography>
+                    <Typography
+                        variant="h4"
+                        className="text-light font-semibold leading-tight"
+                    >
+                        {title}
+                    </Typography>
+
+                    <EventLocation location={location} isDark={true} />
+                    <EventOrganizer
+                        organizer={organizer}
+                        profileImg={organizerImg}
+                        isDark={true}
+                    />
+                    <div className="flex flex-row gap-1 items-center mt-1">
+                        {open && <RegisterButton />}
+                        <EventParticipants mainProfileImg={organizerImg} />
+                    </div>
                 </div>
+                <img
+                    src={eventImg}
+                    alt={title}
+                    className="rounded-xl h-32 w-32 object-cover"
+                />
             </div>
-            <img
-                src={eventImg}
-                alt={title}
-                className="rounded-xl h-32 w-32 object-cover"
-            />
-        </div>
-    </Link>
-);
+        </Link>
+    );
+};
 
 // Carousel event card (light background)
 const CarouselEventCard: React.FC<CarouselEventCardProps> = ({
@@ -404,4 +419,3 @@ export default function EventsPage(): React.ReactElement {
         </main>
     );
 }
-
