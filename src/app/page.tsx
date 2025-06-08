@@ -1,161 +1,131 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 
 import {
-    GraduationCap as GraduationCapIcon,
-    Users as UsersIcon,
-    ScanEye as ScanEyeIcon,
+  GraduationCap as GraduationCapIcon,
+  Users as UsersIcon,
+  ScanEye as ScanEyeIcon,
 } from "lucide-react";
-
-import Link from "next/link";
 
 import Typography from "@/components/typography/typography";
 import Background from "@/components/background";
 import Footer from "@/components/ui/footer";
 
 export type UserRole = "student" | "organization" | "guest";
+
 export default function ContinueAs() {
-    const [selected, setSelected] = useState<UserRole | undefined>(undefined);
+  const router = useRouter();
 
-    useEffect(() => {
-        if (selected) {
-            if (typeof window !== "undefined" && window.localStorage) {
-                localStorage.setItem("role", selected);
-            }
-        }
-    }, [selected]);
+  const handleSelect = (role: UserRole) => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      localStorage.setItem("role", role);
+    }
 
-    return (
-        <>
-            <div className="px-5 md:px-10 lg:px-29 xl:px-43 flex-grow mb-20">
-                <Background />
-                <main className="flex flex-col gap-10 justify-center items-center py-15">
-                    <img
-                        src="/images/kabserve_logo_big.png"
-                        alt="Kabserve Logo"
-                        className="max-h-50 md:max-h-100 md:-mt-45 object-contain"
-                    />
-                    <span className="text-white font-semibold -mt-25 md:-mt-40 md:text-4xl mb-20">
-                        Vibrant communities.{" "}
-                        <span className="bg-gradient-to-r from-[#FF4800] to-[#FFDD00] inline-block text-transparent bg-clip-text">
-                            Fiery{" "}
-                        </span>{" "}
-                        passion.
-                    </span>
-                    <section className="flex flex-col w-full -mt-20">
-                        <Typography className="text-white font-semibold">
-                            {" "}
-                            Continue as...
-                        </Typography>
-                        <Typography variant="h3" className="text-white">
-                            Identify as a Student, Organization, or Guest
-                        </Typography>
-                    </section>
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        <article
-                            onClick={() => setSelected("student")}
-                            className={`${selected === "student" && "-translate-y-5"} transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer`}
-                        >
-                            <GraduationCapIcon size={120} />
-                            <Typography className="text-[#255F38] font-semibold md:hidden">
-                                Student
-                            </Typography>
-                            <Typography variant="h3" className="md:hidden">
-                                Explore campus orgs, join events, and grow your
-                                CvSU journey.
-                            </Typography>
-                            <Typography
-                                variant="h2"
-                                className="text-[#255F38] font-semibold hidden md:flex"
-                            >
-                                Student
-                            </Typography>
-                            <Typography variant="p" className="hidden md:flex">
-                                Explore campus orgs, join events, and grow your
-                                CvSU journey.
-                            </Typography>
-                            <div
-                                className={`absolute bottom-0 left-0 h-3 w-full bg-green-600 transition-all duration-300 ${
-                                    selected === "student"
-                                        ? "opacity-100"
-                                        : "opacity-0"
-                                }`}
-                            />
-                        </article>
+    // Navigate immediately based on role
+    if (role === "guest") {
+      router.push("/guest");
+    } else {
+      router.push("/login");
+    }
+  };
 
-                        <article
-                            onClick={() => setSelected("organization")}
-                            className={`${selected === "organization" && "-translate-y-5"} transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer`}
-                        >
-                            <UsersIcon size={120} />
-                            <Typography className="text-[#255F38] font-semibold md:hidden">
-                                Organization
-                            </Typography>
-                            <Typography variant="h3" className="md:hidden">
-                                Explore campus orgs, join events, and grow your
-                                CvSU journey.
-                            </Typography>
-                            <Typography
-                                variant="h2"
-                                className="text-[#255F38] font-semibold hidden md:flex"
-                            >
-                                Organization
-                            </Typography>
-                            <Typography variant="p" className="hidden md:flex">
-                                Manage your org, post events, and engage with
-                                Kabsuhenyos.
-                            </Typography>
-                            <div
-                                className={`absolute bottom-0 left-0 h-3 w-full bg-green-600 transition-all duration-300 ${
-                                    selected === "organization"
-                                        ? "opacity-100"
-                                        : "opacity-0"
-                                }`}
-                            />
-                        </article>
+  return (
+    <>
+      <div className="px-5 md:px-10 lg:px-29 xl:px-43 flex-grow mb-20">
+        <Background />
+        <main className="flex flex-col gap-10 justify-center items-center py-15">
+          <img
+            src="/images/kabserve_logo_big.png"
+            alt="Kabserve Logo"
+            className="max-h-50 md:max-h-100 md:-mt-45 object-contain"
+          />
+          <span className="text-white font-semibold -mt-25 md:-mt-40 md:text-4xl mb-20">
+            Vibrant communities.{" "}
+            <span className="bg-gradient-to-r from-[#FF4800] to-[#FFDD00] inline-block text-transparent bg-clip-text">
+              Fiery{" "}
+            </span>{" "}
+            passion.
+          </span>
+          <section className="flex flex-col w-full -mt-20">
+            <Typography className="text-white font-semibold">
+              Continue as...
+            </Typography>
+            <Typography variant="h3" className="text-white">
+              Identify as a Student, Organization, or Guest
+            </Typography>
+          </section>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <article
+              onClick={() => handleSelect("student")}
+              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer hover:-translate-y-5"
+            >
+              <GraduationCapIcon size={120} />
+              <Typography className="text-[#255F38] font-semibold md:hidden">
+                Student
+              </Typography>
+              <Typography variant="h3" className="md:hidden">
+                Explore campus orgs, join events, and grow your CvSU journey.
+              </Typography>
+              <Typography
+                variant="h2"
+                className="text-[#255F38] font-semibold hidden md:flex"
+              >
+                Student
+              </Typography>
+              <Typography variant="p" className="hidden md:flex">
+                Explore campus orgs, join events, and grow your CvSU journey.
+              </Typography>
+            </article>
 
-                        <article
-                            onClick={() => setSelected("guest")}
-                            className={`${selected === "guest" && "-translate-y-5"} transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer`}
-                        >
-                            <ScanEyeIcon size={120} />
-                            <Typography className="text-[#255F38] font-semibold md:hidden">
-                                Guest
-                            </Typography>
-                            <Typography variant="h3" className="md:hidden">
-                                Browse as a visitor and discover what Kabserve
-                                has to offer.
-                            </Typography>
-                            <Typography
-                                variant="h2"
-                                className="text-[#255F38] font-semibold hidden md:flex"
-                            >
-                                Guest
-                            </Typography>
-                            <Typography variant="p" className="hidden md:flex">
-                                Browse as a visitor and discover what Kabserve
-                                has to offer.
-                            </Typography>
+            <article
+              onClick={() => handleSelect("organization")}
+              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer hover:-translate-y-5"
+            >
+              <UsersIcon size={120} />
+              <Typography className="text-[#255F38] font-semibold md:hidden">
+                Organization
+              </Typography>
+              <Typography variant="h3" className="md:hidden">
+                Manage your org, post events, and engage with Kabsuhenyos.
+              </Typography>
+              <Typography
+                variant="h2"
+                className="text-[#255F38] font-semibold hidden md:flex"
+              >
+                Organization
+              </Typography>
+              <Typography variant="p" className="hidden md:flex">
+                Manage your org, post events, and engage with Kabsuhenyos.
+              </Typography>
+            </article>
 
-                            <div
-                                className={`absolute bottom-0 left-0 h-3 w-full bg-green-600 transition-all duration-300 ${
-                                    selected === "guest"
-                                        ? "opacity-100"
-                                        : "opacity-0"
-                                }`}
-                            />
-                        </article>
-                    </div>
-
-                    <Link href={selected !== "guest" ? "/login" : "/guest"}>
-                        <button className="cursor-pointer text-xl w-full bg-yellow-400 text-green-900 font-bold py-2 px-10 rounded hover:bg-yellow-500 transition active:scale-97">
-                            Next
-                        </button>
-                    </Link>
-                </main>
-            </div>
-            <Footer />
-        </>
-    );
+            <article
+              onClick={() => handleSelect("guest")}
+              className="transition duration-300 relative bg-white rounded-t-2xl flex flex-col justify-center items-center p-10 text-center w-75 cursor-pointer hover:-translate-y-5"
+            >
+              <ScanEyeIcon size={120} />
+              <Typography className="text-[#255F38] font-semibold md:hidden">
+                Guest
+              </Typography>
+              <Typography variant="h3" className="md:hidden">
+                Browse as a visitor and discover what Kabserve has to offer.
+              </Typography>
+              <Typography
+                variant="h2"
+                className="text-[#255F38] font-semibold hidden md:flex"
+              >
+                Guest
+              </Typography>
+              <Typography variant="p" className="hidden md:flex">
+                Browse as a visitor and discover what Kabserve has to offer.
+              </Typography>
+            </article>
+          </div>
+        </main>
+      </div>
+      <Footer />
+    </>
+  );
 }
